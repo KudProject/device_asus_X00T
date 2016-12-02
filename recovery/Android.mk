@@ -1,0 +1,7 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_C_INCLUDES := bootable/recovery
+LOCAL_SRC_FILES := recovery_updater.cpp
+LOCAL_MODULE := librecovery_updater_X00T
+include $(BUILD_STATIC_LIBRARY)
