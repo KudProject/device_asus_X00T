@@ -80,7 +80,6 @@ TARGET_USES_HWC2 := true
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_ION := true
 TARGET_SCREEN_DENSITY := 420
-TARGET_USES_NEW_ION_API :=true
 
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := "/sys/kernel/touchpanel/dclicknode"
