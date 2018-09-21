@@ -22,7 +22,7 @@
 # definition file).
 #
 
-DEVICE_PATH := device/asus/X00TD
+DEVICE_PATH := device/asus/X00T
 
 BOARD_VENDOR := asus
 
@@ -66,7 +66,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/asus/sdm660
-TARGET_KERNEL_CONFIG := X00TD_defconfig
+TARGET_KERNEL_CONFIG := X00T_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
 
 # ANT+
@@ -242,7 +242,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_X00TD
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_X00T
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # RIL
@@ -264,7 +264,7 @@ TARGET_USE_SDCLANG := true
 
 # TWRP Support
 ifeq ($(WITH_TWRP),true)
-TARGET_RECOVERY_DEVICE_DIRS += device/asus/X00TD/twrp
+TARGET_RECOVERY_DEVICE_DIRS += device/asus/X00T/twrp
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -282,8 +282,8 @@ TW_SCREEN_BLANK_ON_BOOT := true
 endif
 
 # Vendor init
-TARGET_INIT_VENDOR_LIB := libinit_X00TD
-TARGET_RECOVERY_DEVICE_MODULES := libinit_X00TD
+TARGET_INIT_VENDOR_LIB := libinit_X00T
+TARGET_RECOVERY_DEVICE_MODULES := libinit_X00T
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -300,4 +300,4 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_OPERSTATE_PATH := "/sys/class/net/wlan0/operstate"
 
 # inherit from the proprietary version
--include vendor/asus/X00TD/BoardConfigVendor.mk
+-include vendor/asus/X00T/BoardConfigVendor.mk
