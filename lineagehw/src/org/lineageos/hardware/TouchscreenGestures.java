@@ -48,22 +48,24 @@ public class TouchscreenGestures {
             "persist.asus.gesture.type";
 
     private static final int[] gestures_support = {
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
     };
 
     // Id, name, keycode
     private static final TouchscreenGesture[] TOUCHSCREEN_GESTURES = {
-        new TouchscreenGesture(0, "Letter C", 12),
-        new TouchscreenGesture(1, "Letter e", 19),
-        new TouchscreenGesture(2, "Letter S", 20),
-        new TouchscreenGesture(3, "Letter V", 15),
-        new TouchscreenGesture(4, "Letter W", 13),
-        new TouchscreenGesture(5, "Letter Z", 16),
+        new TouchscreenGesture(0, "Letter C", 249),
+        new TouchscreenGesture(1, "Letter e", 250),
+        new TouchscreenGesture(2, "Letter S", 251),
+        new TouchscreenGesture(3, "Letter V", 252),
+        new TouchscreenGesture(4, "Letter W", 253),
+        new TouchscreenGesture(5, "Letter Z", 254),
+        new TouchscreenGesture(6, "Swipe Up", 248),
     };
 
     public static final int[] ALL_GESTURE_MASKS = {
@@ -73,6 +75,7 @@ public class TouchscreenGestures {
         0x104, // v gesture mask
         0x180, // w gesture mask
         0x108, // z gesture mask
+	0x102, //slide up gesture mask
     };
 
     /**
@@ -81,11 +84,15 @@ public class TouchscreenGestures {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
+
+/*
+	Note : use proper true/false
+*/
 	if(FileUtils.isFileWritable(GESTURE_PATH) &&
                 FileUtils.isFileReadable(GESTURE_PATH)) {
-	        Log.i("Gestures Init af : ", "True");
+	        Log.i("Gestures Init : ", "True");
 	} else {
-	        Log.i("Gestures Init af : ", "False");
+	        Log.i("Gestures Init : ", "False");
 	}
 	return true;
     }
