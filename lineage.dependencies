@@ -2,5 +2,9 @@
   {
     "repository": "android_kernel_asus_sdm660",
     "target_path": "kernel/asus/sdm660"
+  },
+  {
+    "repository": "android_packages_resources_devicesettings",
+    "target_path": "packages/resources/devicesettings"
   }
 ]
