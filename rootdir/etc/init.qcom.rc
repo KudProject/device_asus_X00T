@@ -378,6 +378,14 @@ on post-fs-data
     mkdir /dev/socket/location/mq 0770 gps gps
     mkdir /dev/socket/location/xtra 0770 gps gps
 
+# Permissions for Touch dclick Mode
+    chown system system /sys/kernel/touchpanel/dclicknode
+    chmod 0664 /sys/kernel/touchpanel/dclicknode
+
+# Permissions for Touch Gesture Mode
+    chown system system /sys/kernel/touchpanel/gesture_mode
+    chmod 0664 /sys/kernel/touchpanel/gesture_mode
+
     #Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared
