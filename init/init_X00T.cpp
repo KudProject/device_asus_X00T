@@ -136,6 +136,9 @@ void vendor_check_variant()
             product_device = "ASUS_X00T_3";
         }
 
+        // Enable EIS support in Google Camera
+        property_set("persist.camera.eis.enable", "1");
+
     // 3/4 GB variants
     } else {
         // Russian model
