@@ -179,13 +179,13 @@ ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 
 #Settings to enable sensors
 #Device Orientation sensor
-ro.vendor.sensors.dev_ori=true
+ro.vendor.qti.sensors.dev_ori=true
 #Persistent Motion Detector
-ro.vendor.sensors.pmd=true
+ro.vendor.qti.sensors.pmd=true
 #Stationary Detector
-ro.vendor.sensors.sta_detect=true
+ro.vendor.qti.sensors.sta_detect=true
 #Motion Detector
-ro.vendor.sensors.mot_detect=true
+ro.vendor.qti.sensors.mot_detect=true
 
 #Expose aux camera for below packages
 vendor.camera.aux.packagelist=org.codeaurora.snapcam
