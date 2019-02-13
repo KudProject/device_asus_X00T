@@ -108,6 +108,9 @@ on property:sys.boot_completed=1
 on property:ro.config.versatility=*
     write /proc/countrycode ${ro.config.versatility}
 
+on property:sys.nvram.btmac=*
+    start vendor-btmac-sh
+
 # Nvram country service
 service nvram_country system/vendor/bin/nvram_country
     user system
@@ -118,6 +121,12 @@ service nvram_country system/vendor/bin/nvram_country
 service nvram_btwifi /vendor/bin/nvram_btwifi
     user root
     group system
+    oneshot
+    disabled
+
+service vendor-btmac-sh  /vendor/bin/init.btmac.sh
+    class core
+    user root
     oneshot
     disabled
 
