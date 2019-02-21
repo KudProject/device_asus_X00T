@@ -20,6 +20,9 @@ BOARD_VENDOR := asus
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 
+# APEX image
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Arch
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
