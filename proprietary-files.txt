@@ -1267,6 +1267,9 @@ vendor/lib64/vendor.qti.ims.callinfo@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@1.0.so
 
+# Radio (QTI telephony) - from jasmine - PKQ1.180904.001 V10.0.1.0.PDIMIFJ
+framework/qti-telephony-common.jar|5362cf7dc277ff53ef33868b44027ca9a07e29f3
+
 # Sensors
 vendor/bin/sensors.qti
 vendor/etc/sensors/sensor_def_qcomdev.conf
