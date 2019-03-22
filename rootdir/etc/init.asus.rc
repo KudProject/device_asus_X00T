@@ -110,6 +110,7 @@ on property:ro.config.versatility=*
 
 on property:sys.nvram.btmac=*
     start vendor-btmac-sh
+    restart vendor.bluetooth-1-0-qti
 
 # Nvram country service
 service nvram_country system/vendor/bin/nvram_country
