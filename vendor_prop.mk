@@ -52,7 +52,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.eis.enable=1 \
+    persist.vendor.camera.eis.enable=1 \
+    persist.vendor.camera.ois.disable=1 \
+    persist.vendor.camera.is_type=5 \
     persist.ts.rtmakeup=1 \
     persist.vendor.camera.HAL3.enabled=1 \
     persist.vendor.camera.expose.aux=1 \
