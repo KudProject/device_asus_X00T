@@ -18,6 +18,7 @@ DEVICE_PATH := device/asus/X00T
 BOARD_VENDOR := asus
 
 # Bluetooth
+TARGET_USE_QTI_BT_STACK := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
