@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 Slimroms Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <SwitchPreference
+            android:key="enable_gestures"
+            android:title="@string/enable_gestures_title"
+            android:persistent="false"
+            android:summary="@string/enable_gestures_summary" />
+
+        <PreferenceCategory
+            android:key="gestures"
+            android:title="@string/gestures_title" >
+
+            <!-- Preference
+                android:key="gesture_double_tap"
+                android:title="@string/gesture_double_tap_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" /-->
+
+            <Preference
+                android:key="gesture_v"
+                android:title="@string/gesture_v_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_s"
+                android:title="@string/gesture_s_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_z"
+                android:title="@string/gesture_z_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_w"
+                android:title="@string/gesture_w_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_c"
+                android:title="@string/gesture_c_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_e"
+                android:title="@string/gesture_e_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_up"
+                android:title="@string/gesture_up_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_down"
+                android:title="@string/gesture_down_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_left"
+                android:title="@string/gesture_left_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+            <Preference
+                android:key="gesture_right"
+                android:title="@string/gesture_right_title"
+                android:persistent="false"
+                android:dependency="enable_gestures" />
+
+        </PreferenceCategory>
+
+</PreferenceScreen>

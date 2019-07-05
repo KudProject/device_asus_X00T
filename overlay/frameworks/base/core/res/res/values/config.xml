@@ -624,4 +624,8 @@
      <item>com.google.android.googlequicksearchbox/com.google.android.hotword.service.HotwordService</item>
      </string-array>
 
+    <!-- ZenParts -->
+     <string name="config_alternativeDeviceKeyHandlerLib" translatable="false">/system/priv-app/ZenParts/ZenParts.apk</string>
+     <string name="config_alternativeDeviceKeyHandlerClass" translatable="false">com.asus.zenparts.KeyHandler</string>
+
 </resources>
