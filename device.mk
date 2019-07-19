@@ -183,6 +183,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
     
+# VNDK
+# Update this list with blob function
+# libstdc++: camera.sdm660
+PRODUCT_PACKAGES += \
+    libstdc++.vendor \
+    vndk_package
+    
 # WiFi
 PRODUCT_PACKAGES += \
     hostapd \
