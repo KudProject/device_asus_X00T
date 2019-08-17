@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2019 Vyacheslav Vidanov (aka Anomalchik)
  * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,45 +19,96 @@
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <utils/Errors.h>
 
 #include "Light.h"
 
+// libhwbinder:
 using android::hardware::configureRpcThreadpool;
 using android::hardware::joinRpcThreadpool;
 
+// Generated HIDL files
 using android::hardware::light::V2_0::ILight;
 using android::hardware::light::V2_0::implementation::Light;
 
-using android::OK;
-using android::sp;
-using android::status_t;
+// LCD
+const static std::string kLcdBacklightPath = "/sys/class/leds/lcd-backlight/brightness";
+const static std::string kLcdMaxBacklightPath = "/sys/class/leds/lcd-backlight/max_brightness";
+
+// Red led
+const static std::string kRedBlinkPath = "/sys/class/leds/red/blink";
+const static std::string kRedLedPath = "/sys/class/leds/red/brightness";
+
+// Green led
+const static std::string kGreenBlinkPath = "/sys/class/leds/green/blink";
+const static std::string kGreenLedPath = "/sys/class/leds/green/brightness";
 
 int main() {
-    status_t status;
-    sp<ILight> service = nullptr;
+    uint32_t lcdMaxBrightness = 255;
 
-    LOG(INFO) << "Light HAL service 2.0 is starting.";
-
-    service = new Light();
-    if (service == nullptr) {
-        LOG(ERROR) << "Can not create an instance of Light HAL Iface, exiting.";
-        goto shutdown;
+    std::ofstream lcdBacklight(kLcdBacklightPath);
+    if (!lcdBacklight) {
+        LOG(ERROR) << "Failed to open " << kLcdBacklightPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
     }
 
-    configureRpcThreadpool(1, true /*callerWillJoin*/);
-
-    status = service->registerAsService();
-    if (status != OK) {
-        LOG(ERROR) << "Could not register service for Light HAL Iface (" << status << ")";
-        goto shutdown;
+    std::ifstream lcdMaxBacklight(kLcdMaxBacklightPath);
+    if (!lcdMaxBacklight) {
+        LOG(ERROR) << "Failed to open " << kLcdMaxBacklightPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
+    } else {
+        lcdMaxBacklight >> lcdMaxBrightness;
     }
 
-    LOG(INFO) << "Light HAL service is ready.";
+    std::ofstream redBlink(kRedBlinkPath);
+    if (!redBlink) {
+        LOG(ERROR) << "Failed to open " << kRedBlinkPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
+    }
+
+    std::ofstream redLed(kRedLedPath);
+    if (!redLed) {
+        LOG(ERROR) << "Failed to open " << kRedLedPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
+    }
+
+    std::ofstream greenBlink(kGreenBlinkPath);
+    if (!greenBlink) {
+        LOG(ERROR) << "Failed to open " << kGreenBlinkPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
+    }
+
+    std::ofstream greenLed(kGreenLedPath);
+    if (!greenLed) {
+        LOG(ERROR) << "Failed to open " << kGreenLedPath << ", error=" << errno << " ("
+                   << strerror(errno) << ")";
+        return -errno;
+    }
+
+    android::sp<ILight> service =
+        new Light({std::move(lcdBacklight), lcdMaxBrightness}, std::move(redBlink),
+                  std::move(redLed), std::move(greenBlink), std::move(greenLed));
+
+    configureRpcThreadpool(1, true);
+
+    android::status_t status = service->registerAsService();
+
+    if (status != android::OK) {
+        LOG(ERROR) << "Cannot register Light HAL service";
+        return 1;
+    }
+
+    LOG(INFO) << "Light HAL Ready.";
     joinRpcThreadpool();
-    // Should not pass this line
-
-shutdown:
-    // In normal operation, we don't expect the thread pool to exit
-    LOG(ERROR) << "Light HAL service is shutting down.";
+    // Under normal cases, execution will not reach this line.
+    LOG(ERROR) << "Light HAL failed to join thread pool.";
     return 1;
 }
