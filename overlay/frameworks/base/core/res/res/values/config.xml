@@ -577,5 +577,9 @@
      
     <!-- Whether device ignores the RSSNR signal implementation -->
      <bool name="config_ignoreRssnrSignalLevel">true</bool>
+     
+    <!-- Whether to artificially interpret all signal strengths as
+         one bar higher than they actually are -->
+     <bool name="config_inflateSignalStrength">true</bool>
 
 </resources>
