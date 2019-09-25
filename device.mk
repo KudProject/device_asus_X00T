@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
     
+# NFC removal for non NFC variant
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/bin/device_check.sh:install/bin/device_check.sh
+    
 # Netutils
 PRODUCT_PACKAGES += \
     libandroid_net \
