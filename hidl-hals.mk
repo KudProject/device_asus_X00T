@@ -80,7 +80,8 @@ PRODUCT_PACKAGES += \
     
 # RenderScript HAL
 PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
+    android.hardware.renderscript@1.0-impl \
+    android.hardware.power.stats@1.0-service.mock
 
 # RIL
 PRODUCT_PACKAGES += \
