@@ -598,4 +598,7 @@
     <!-- Specify if the fingerprint hardware support gestures-->
      <bool name="config_fingerprintSupportsGestures">true</bool>
 
+    <!-- Flashlight on power button -->
+     <integer name="config_flashlightProximityTimeout">-1</integer>
+
 </resources>
