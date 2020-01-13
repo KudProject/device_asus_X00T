@@ -88,6 +88,7 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     ro.product.first_api_level=27 \
     ro.ril.ecclist=112,911 \
     ro.telephony.iwlan_operation_mode=legacy \
+    ro.telephony.use_old_mnc_mcc_format=true \
     ro.vendor.audio.sdk.fluencetype=fluence \
     ro.vendor.audio.sdk.ssr=false \
     ro.vendor.bluetooth.wipower=false \
