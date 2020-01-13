@@ -1,2 +1,7 @@
-# Dummy keylayout file for goodix
-# fingerprint gestures
+# Fingerprint gestures keylayout for goodix
+
+key 103  SYSTEM_NAVIGATION_UP
+key 105  SYSTEM_NAVIGATION_LEFT
+key 106  SYSTEM_NAVIGATION_RIGHT
+key 108  SYSTEM_NAVIGATION_DOWN
+
