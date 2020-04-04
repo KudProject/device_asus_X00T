@@ -116,5 +116,9 @@
 
     <!-- Device specific settings -->
     <string name="device_settings_app_name">Advanced settings</string>
+    
+    <!-- FPS Info -->
+    <string name="fps_info_title">FPS Info Overlay</string>
+    <string name="fps_info_summary">Show overlay with current frames per second</string>
 
 </resources>
