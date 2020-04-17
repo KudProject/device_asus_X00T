@@ -19,6 +19,7 @@ PRODUCT_PROPERTY_OVERRIDES +=  \
     persist.backup.ntpServer=0.pool.ntp.org \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
     persist.bluetooth.a2dp_offload.disabled=true \
+    persist.vendor.service.bdroid.sibs=false \
     persist.radio.multisim.config=dsds \
     persist.sys.godoverlay.enable=1 \
     persist.sys.mm.wapn.show=0 \
