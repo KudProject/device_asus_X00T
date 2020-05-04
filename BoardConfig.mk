@@ -63,6 +63,9 @@ BOARD_HAVE_QCOM_FM := true
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
 
+# Seccomp
+BOARD_SECCOMP_POLICY := $(DEVICE_PATH)/seccomp
+
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-04-05
 
