@@ -17,6 +17,9 @@
 DEVICE_PATH := device/asus/X00T
 BOARD_VENDOR := asus
 
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/recovery.fstab
+
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-04-05
 
