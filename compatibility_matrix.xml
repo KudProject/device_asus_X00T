@@ -67,10 +67,4 @@
             <instance>sigmahal</instance>
         </interface>
     </hal>
-    <vendor-ndk>
-        <version>29</version>
-    </vendor-ndk>
-    <system-sdk>
-        <version>28</version>
-    </system-sdk>
 </compatibility-matrix>
