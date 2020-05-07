@@ -59,6 +59,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxml2 \
     Snap
+    
+# Display
+PRODUCT_PACKAGES += \
+    copybit.sdm660 \
+    gralloc.sdm660 \
+    hwcomposer.sdm660 \
+    memtrack.sdm660 \
+    libdisplayconfig \
+    liboverlay \
+    libqdMetaData.system \
+    libtinyxml \
+    libvulkan \
+    libgenlock
 
 # Exclude TOF sensor from InputManager
 PRODUCT_COPY_FILES += \
