@@ -118,6 +118,12 @@ PRODUCT_COPY_FILES += \
     
 # HIDL HALs
 $(call inherit-product, $(LOCAL_PATH)/hidl-hals.mk)
+
+# IPv6
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
     
 # IRQ
 PRODUCT_COPY_FILES += \
