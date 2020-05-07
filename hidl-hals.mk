@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service
 
+# FM
+PRODUCT_PACKAGES += \
+    android.hardware.broadcastradio@1.0-impl
+    
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
