@@ -139,6 +139,14 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
     
 # WiFi
+PRODUCT_PACKAGES += \
+    hostapd \
+    hostapd_cli \
+    libwifi-hal-qcom \
+    wificond \
+    wpa_supplicant \
+    wpa_supplicant.conf
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
