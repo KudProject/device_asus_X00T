@@ -60,6 +60,11 @@ PRODUCT_PACKAGES += \
     libxml2 \
     Snap
     
+# Connectivity Engine support (CNE)
+PRODUCT_PACKAGES += \
+    cneapiclient \
+    com.quicinc.cne
+    
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
     
