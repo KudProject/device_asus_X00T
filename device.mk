@@ -65,6 +65,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libbthost_if
     
+# Call the proprietary setup
+$(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
+    
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
