@@ -69,6 +69,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@2.0-impl \
     android.hardware.health@2.0-service
+    
+# Netutils
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.0
 
 # RIL
 PRODUCT_PACKAGES += \
