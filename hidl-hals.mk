@@ -89,6 +89,10 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.config@1.2 \
     android.hardware.secure_element@1.0
 
+# Thermal
+PRODUCT_PACKAGES += \
+    android.hardware.thermal@2.0-service.mock
+
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
