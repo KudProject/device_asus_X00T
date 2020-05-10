@@ -144,6 +144,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # NFC
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hardware.nfc_nci=nqx.default
+    
+# QC framework value-adds
+PRODUCT_ODM_PROPERTIES += \
+    ro.vendor.qti.va_odm.support=1
 
 # QTI
 PRODUCT_PROPERTY_OVERRIDES += \

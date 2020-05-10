@@ -114,6 +114,9 @@ ro.bluetooth.wipower=true
 #snapdragon value add features
 #
 
+# QC framework value-adds
+ro.vendor.qti.va_aosp.support=1
+
 #minimum duration for offload playback in secs
 audio.offload.min.duration.secs=30
 
