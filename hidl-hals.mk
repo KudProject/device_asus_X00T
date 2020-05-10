@@ -79,6 +79,11 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
     
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
+    
 # Netutils
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0
