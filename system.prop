@@ -73,6 +73,9 @@ persist.mm.enable.prefetch=true
 #prefer HW codec over SW for thumbnail
 media.stagefright.thumbnail.prefer_hw_codecs=true
 
+# Media Profile
+media.settings.xml=/vendor/etc/media_profiles_vendor.xml
+
 #property to enable narrow search range for video encoding
 vidc.enc.target_support_bframe=1
 vendor.vidc.enc.disable_bframes=1
