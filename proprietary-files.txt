@@ -2726,3 +2726,34 @@ vendor/lib64/vendor.qti.ims.rcsconfig@1.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.0.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1-service-Impl.so
 vendor/lib64/vendor.qti.imsrtpservice@2.1.so
+
+# Sensors
+vendor/bin/sensors.qti
+vendor/lib/hw/activity_recognition.sdm660.so
+vendor/lib/hw/sensors.sdm660_64.so
+vendor/lib/libsensor1.so
+vendor/lib/libsensor_reg.so
+vendor/lib/libssc_default_listener.so
+vendor/lib/sensors.native.so
+vendor/lib/sensors.ssc.so
+vendor/lib64/hw/activity_recognition.sdm660.so
+vendor/lib64/hw/sensors.sdm660_64.so
+vendor/lib64/libsensor1.so
+vendor/lib64/libsensorndkbridge.so
+vendor/lib64/libsensor_reg.so
+vendor/lib64/libssc_default_listener.so
+vendor/lib64/sensors.native.so
+vendor/lib64/sensors.ssc.so
+
+# Sensors calibration
+-product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
+product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/etc/calmodule.cfg
+vendor/lib/libcalmodule_common.so
+vendor/lib/sensor_calibrate.so
+vendor/lib64/libcalmodule_common.so
+vendor/lib64/sensor_calibrate.so
+
+# Sensor-configs
+vendor/etc/sensors/sensor_def_qcomdev.conf
