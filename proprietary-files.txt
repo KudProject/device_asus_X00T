@@ -2221,3 +2221,19 @@ vendor/etc/init/vendor.qti.hardware.factory@1.0-service.rc
 vendor/etc/permissions/vendor.qti.hardware.factory.xml
 vendor/lib64/vendor.qti.hardware.factory@1.0.so
 vendor/lib64/vendor.qti.hardware.factory@1.1.so
+
+# Fingerprint
+-vendor/app/QFingerprintService/QFingerprintService.apk
+vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
+vendor/bin/qfp-daemon
+vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
+vendor/etc/permissions/qti_fingerprint_interface.xml
+vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
+vendor/lib64/hw/cdfinger.fingerprint.default.so
+vendor/lib64/hw/fingerprint.default.so
+vendor/lib64/libgf_ca.so
+vendor/lib64/libgf_hal.so
+vendor/lib64/libqfp-service.so
+vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so
+vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so
+vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
