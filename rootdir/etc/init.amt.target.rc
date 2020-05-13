@@ -1,0 +1,117 @@
+#Copyright (C) 2019 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+
+## zb601kl m1
+
+# action trigger order:
+# early-init -> init -> late-init -> early-fs -> factory-fs -> fs -> post-fs -> late-fs -> post-fs-data ->
+# early-boot -> boot
+
+on early-init
+    # TODO
+on init
+    # TODO
+
+on init
+    # TODO
+
+on late-init
+    # TODO
+
+on early-fs
+    # TODO
+
+on factory-fs
+    # TODO
+
+on fs
+    wait /dev/block/bootdevice/by-name/asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /oem nosuid nodev noatime barrier=1
+    restorecon_recursive /oem
+    wait /oem
+    mkdir /oem/etc 0755 system system
+    mkdir /oem/etc/xml 0755 system system
+    mkdir /oem/etc/vintf 0755 system system
+    chmod 0644 /oem/etc/fingerprint_for_gsi
+    start link_manifest
+    wait /dev/block/bootdevice/by-name/priv
+    mount ext4 /dev/block/bootdevice/by-name/priv /priv nosuid nodev noatime barrier=1
+    restorecon_recursive /priv
+
+on post-fs
+    chmod 0644 /asdf/etc/vintf/vendor_manifest.xml
+
+on late-fs
+    # TODO
+
+on post-fs-data
+    # TODO
+    chown system system /priv
+    chown system system /priv/*
+    chmod 0775 /priv
+    chmod 0775 /priv/*
+	chown root system /asusfw
+
+on early-boot
+    # TODO
+
+on boot
+    # TODO
+    #add for als/ps permission by wildbook at 2019/09/03 start
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_delay
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_name
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_delay
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_name
+
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_delay
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_calibrate
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_name
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_enable
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_delay
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_calibrate
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_name
+
+    chown radio radio sys/module/stk3x1x/parameters/call_status_flag
+    #add for als/ps permission by wildbook at 2019/09/03 end
+#add by yukai@AMT for ntfs/exfat sd 20190829 start
+on property:ro.build.type=user
+    insmod /system/bin/texfat_user.ko
+    insmod /system/bin/tntfs_user.ko
+
+on property:ro.build.type=userdebug
+    insmod /system/bin/texfat_userdebug.ko
+    insmod /system/bin/tntfs_userdebug.ko
+
+on property:ro.build.type=eng
+    insmod /system/bin/texfat_userdebug.ko
+    insmod /system/bin/tntfs_userdebug.ko
+ #add by yukai@AMT for ntfs/exfat sd 20190829 end
+
+on property:ro.config.versatility=*
+    write /proc/countrycode ${ro.config.versatility}
+
+on property:ro.vendor.build.fingerprint=*
+    write /asdf/etc/fingerprint_for_gsi ${ro.vendor.build.fingerprint}
+    mount ext4 /dev/block/bootdevice/by-name/asdf /oem remount ro nosuid nodev noatime barrier=1
+
+service link_manifest /system/vendor/bin/link_manifest
+    user system
+    group system
+    oneshot
+    disabled
+    seclabel u:r:set_dynamic_prop:s0

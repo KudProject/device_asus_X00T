@@ -114,6 +114,18 @@ PRODUCT_PACKAGES += \
     init.qti.qseecomd.sh \
     qca6234-service.sh
     
+# Ramdisk rc
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.amt.rc \
+    init.amt.target.rc \
+    init.msm.usb.configfs.rc \
+    init.qcom.factory.rc \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.target.rc \
+    ueventd.qcom.rc
+    
 # WiFi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/fstman.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/fstman.ini \

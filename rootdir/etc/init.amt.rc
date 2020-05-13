@@ -1,0 +1,453 @@
+#Copyright (C) 2019 The Android Open Source Project
+#
+# IMPORTANT: Do not create world writable files or directories.
+# This is a common source of Android security bugs.
+#
+
+# action trigger order:
+# early-init -> init -> late-init -> early-fs -> factory-fs -> fs -> post-fs -> late-fs -> post-fs-data ->
+# load_persist_props_action -> zygote-start -> firmware_mounts_complete -> early-boot -> boot -> mmi
+
+import /vendor/etc/init/hw/init.amt.target.rc
+
+on early-init
+    mkdir /mnt/vendor/factory 0755 system system
+
+on fs
+    wait /dev/block/bootdevice/by-name/asusfw
+    mount ext4 /dev/block/bootdevice/by-name/asusfw /asusfw nosuid nodev noatime barrier=1
+    restorecon_recursive /asusfw
+    wait /dev/block/bootdevice/by-name/ADF
+    mount ext4 /dev/block/bootdevice/by-name/ADF /ADF nosuid nodev noatime barrier=1
+    restorecon_recursive /ADF
+    wait /dev/block/bootdevice/by-name/APD
+    mount ext4 /dev/block/bootdevice/by-name/APD /APD nosuid nodev noatime barrier=1
+    restorecon_recursive /APD
+    wait /dev/block/bootdevice/by-name/asdf
+    mount ext4 /dev/block/bootdevice/by-name/asdf /asdf nosuid nodev noatime barrier=1
+    restorecon_recursive /asdf
+    wait /dev/block/bootdevice/by-name/factory
+    mount ext4 /dev/block/bootdevice/by-name/factory /mnt/vendor/factory nosuid nodev noatime barrier=1
+    restorecon_recursive /mnt/vendor/factory
+
+    # move from device/qcom/sdm660_64/init.target.rc
+    mount_all /vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/bms 0700 root system
+    restorecon_recursive /mnt/vendor/persist
+    write /sys/kernel/boot_adsp/boot 1
+    # move from device/qcom/sdm660_64/init.target.rc
+
+    chmod 777 /sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-00/800f000.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/demo_app_property
+    chown system system /sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-00/800f000.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/demo_app_property
+
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence begin
+    start nvram_country
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence end
+
+    # Add by AMT.meng.lv, 08/30/2019, Set camera api to camera2 begin
+    setprop persist.sys.camera.camera2 true
+    # Add by AMT.meng.lv, 08/30/2019, Set camera api to camera2 end
+
+on post-fs
+    start emmc_prop_init
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence begin
+    start set_dynamic_prop
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence end
+
+on post-fs-data
+    chmod 0666 /mnt/vendor/factory/proinfo
+    symlink /mnt/vendor/factory/proinfo /factory/proinfo
+
+#add by suyumei begin
+    chown system system /asusfw
+    chown system system /asusfw/*
+    chmod 0775 /asusfw
+    chmod 0775 /asusfw/*
+
+    chown system system /asusfw/asusfw_version
+    chmod 0775 /asusfw/asusfw_version
+
+    chown system system /ADF
+    chown system system /ADF/*
+    chmod 0775 /ADF
+    chmod 0775 /ADF/*
+
+    chown system system /APD
+    chown system system /APD/*
+
+    chown system system /APD/DemoVersion.txt
+    chown system system /APD/DemoContent.txt
+    chown system system /APD/config.xml
+    chown system system /APD/Media
+    chown system system /APD/Media/m_01.jpg
+    chown system system /APD/Media/m_02.jpg
+    chown system system /APD/Media/m_03.jpg
+    chown system system /APD/Media/m_04.jpg
+    chown system system /APD/Media/m_05.jpg
+    chown system system /APD/Media/m_06.jpg
+    chown system system /APD/Media/m_07.jpg
+    chown system system /APD/Media/m_08.jpg
+    chown system system /APD/Media/m_09.jpg
+    chown system system /APD/Media/m_10.jpg
+    chown system system /APD/Media/m_11.jpg
+    chown system system /APD/Media/m_12.jpg
+    chown system system /APD/Media/m_13.jpg
+    chown system system /APD/Media/m_14.jpg
+    chown system system /APD/Media/m_15.jpg
+
+    chown system system /APD/Media/m_1.jpg
+    chown system system /APD/Media/m_2.jpg
+    chown system system /APD/Media/m_3.jpg
+    chown system system /APD/Media/m_4.jpg
+    chown system system /APD/Media/m_5.jpg
+    chown system system /APD/Media/m_6.jpg
+    chown system system /APD/Media/m_7.jpg
+    chown system system /APD/Media/m_8.jpg
+    chown system system /APD/Media/m_9.jpg
+    chown system system /APD/Media/m_JonasBlue-ByYourSide-feat-RAYE.mp3
+
+    chown system system /APD/Movies
+    chown system system /APD/Movies/demo-video-screensaver.mp4
+    chown system system /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chown system system /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chown system system /APD/Movies/demo-video-screensaver_in_ID.srt
+    chown system system /APD/Movies/demo-video-screensaver_it_IT.srt
+    chown system system /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chown system system /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chown system system /APD/Movies/demo-video-screensaver_vi_VN.srt
+    chown system system /APD/md5CheckValue.md5
+    chown system system /APD/Movies/demo-video-screensaver_cs_CZ.srt
+    chown system system /APD/Movies/demo-video-screensaver_es_ES.srt
+    chown system system /APD/Movies/demo-video-screensaver_pt_BR.srt
+    chown system system /APD/Movies/demo-video-screensaver_ru_RU.srt
+    chown system system /APD/Movies/demo-video-screensaver_th_TH.srt
+    chown system system /APD/Movies/demo-video-screensaver_zh_TW.srt
+    chown system system /APD/Movies/ZB630KL_ZB631KL_Romanian.srt
+    chmod 0775 /APD/md5CheckValue.md5
+    chmod 0775 /APD/DemoVersion.txt
+    chmod 0775 /APD/DemoContent.txt
+    chmod 0775 /APD/config.xml
+    chmod 0775 /APD/Media
+    chmod 0775 /APD/Media/m_01.jpg
+    chmod 0775 /APD/Media/m_02.jpg
+    chmod 0775 /APD/Media/m_03.jpg
+    chmod 0775 /APD/Media/m_04.jpg
+    chmod 0775 /APD/Media/m_05.jpg
+    chmod 0775 /APD/Media/m_06.jpg
+    chmod 0775 /APD/Media/m_07.jpg
+    chmod 0775 /APD/Media/m_08.jpg
+    chmod 0775 /APD/Media/m_09.jpg
+    chmod 0775 /APD/Media/m_10.jpg
+    chmod 0775 /APD/Media/m_11.jpg
+    chmod 0775 /APD/Media/m_12.jpg
+    chmod 0775 /APD/Media/m_13.jpg
+    chmod 0775 /APD/Media/m_14.jpg
+    chmod 0775 /APD/Media/m_15.jpg
+
+    chmod 0775 /APD/Media/m_1.jpg
+    chmod 0775 /APD/Media/m_2.jpg
+    chmod 0775 /APD/Media/m_3.jpg
+    chmod 0775 /APD/Media/m_4.jpg
+    chmod 0775 /APD/Media/m_5.jpg
+    chmod 0775 /APD/Media/m_6.jpg
+    chmod 0775 /APD/Media/m_7.jpg
+    chmod 0775 /APD/Media/m_8.jpg
+    chmod 0775 /APD/Media/m_9.jpg
+    chmod 0775 /APD/Media/m_JonasBlue-ByYourSide-feat-RAYE.mp3
+
+    chmod 0775 /APD/Movies
+    chmod 0775 /APD/Movies/demo-video-screensaver.mp4
+    chmod 0775 /APD/Movies/demo-video-screensaver_fr_FR.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_hu_HU.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_in_ID.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_it_IT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_ja_JP.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pt_PT.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_vi_VN.srt
+
+    chmod 0775 /APD/Movies/demo-video-screensaver_cs_CZ.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_es_ES.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_pt_BR.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_ru_RU.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_th_TH.srt
+    chmod 0775 /APD/Movies/demo-video-screensaver_zh_TW.srt
+    chmod 0775 /APD/Movies/ZB630KL_ZB631KL_Romanian.srt
+    chmod 0775 /APD
+    chmod 0775 /APD/*
+
+    chown system system /asdf
+    chown system system /asdf/*
+    chmod 0775 /asdf
+    chmod 0775 /asdf/*
+
+    chown system system /factory
+    chown system system /factory/*
+    chmod 0775 /factory
+    chmod 0775 /factory/*
+
+#add by suyumei end
+	chown system system /sys/class/leds/red/blink
+	chown system system /sys/class/leds/green/blink
+
+
+on early-boot
+    # add by wildbook at 20190828 +++
+     chown system system /dev/input/event3  # stk3x3x-light
+     chown system system /dev/input/event4  # stk3x3x-proximity
+    # add by wildbook at 20190828 ---
+
+on boot
+#    start savelogsyd
+#    setprop qqq.eee.www 1
+#    start getpersistlog
+#    setprop persist.sys.debug.getaplog 1
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chmod 0660 /sys/class/power_supply/battery/charging_enabled
+    chown system system /sys/class/power_supply/battery/device/smartchg_stop_charging
+    chmod 0660 /sys/class/power_supply/battery/device/smartchg_stop_charging
+
+service nvram_country system/vendor/bin/nvram_country
+    user system
+    group system
+    oneshot
+    disabled
+
+# Modify by AMT.meng.lv,09/09/2019, for set_dynamic_prop check nfc node issue begin
+service set_dynamic_prop /system/vendor/bin/set_dynamic_prop
+    user system
+    group system
+    oneshot
+    disabled
+# Modify by AMT.meng.lv,09/09/2019, for set_dynamic_prop check nfc node issue end
+
+on property:persist.sys.nvinit=Ready
+    start nvram_country
+
+#Huaqin add class core for getaplog by miaozhenxing at 20180809 start
+service getaplog /system/bin/getlog -c
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+service stopaplog /system/bin/getlog -s
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+on property:persist.sys.debug.getaplog=1
+    restart getaplog
+on property:persist.sys.debug.getaplog=0
+    start stopaplog
+#Huaqin add class core for getaplog by miaozhenxing at 20180809 end
+
+service battery_fac_cls /system/bin/battery-oem-cls.sh
+   class late_start
+   user root
+   group root
+   oneshot
+   disabled
+   seclabel u:r:logoem:s0
+
+#add for battery health 20200214
+on property:dbg.battery.changed=1
+   start battery_fac_cls
+
+service getqxdmlog /system/bin/getlog -q
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+
+service stopqxdmlog /system/bin/getlog -x
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+
+on property:persist.sys.debug.getqxdmlog=1
+    restart getqxdmlog
+on property:persist.sys.debug.getqxdmlog=0
+    start stopqxdmlog
+
+
+#Huaqin modiy to getqxdm when test smart_pa by zhangjingzhi at 20180312 start
+on property:sys.debug.getqxdmlog=1
+    restart getqxdmlog
+on property:sys.debug.getqxdmlog=0
+    start stopqxdmlog
+#Huaqin modiy to getqxdm when test smart_pa by zhangjingzhi at 20180312 end
+
+service cpanrlog  /vendor/bin/sh /system/etc/cpanrlog.sh
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+service cptomblog  /vendor/bin/sh /system/etc/cptomblog.sh
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+service gettcpdumplog /system/bin/getlog -t
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+service stoptcpdumplog /system/bin/getlog -p
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+#huaqin modiy to close default log by taohuipeng at 20180504 for rom start
+#service  getpersistlog /system/bin/getpersistlog
+#    class main
+#    user root
+#    oneshot
+#    seclabel u:r:logoem:s0
+#huaqin modiy to close default log by taohuipeng at 20180504 for rom end
+on property:persist.sys.debug.gettcpdump=1
+    restart gettcpdumplog
+on property:persist.sys.debug.gettcpdump=0
+    start stoptcpdumplog
+
+service getalllog /vendor/bin/sh /vendor/etc/getalllog.sh
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+on property:persist.sys.debug.getalllog=1
+    restart getalllog
+on property:persist.sys.debug.getalllog=0
+    stop getalllog
+
+# Huaqin add for BugReporter by wangxiaowen at 2018/12/11 start
+service deletelog /system/bin/deletelog
+    class late_start
+    disabled
+    user root
+    oneshot
+    group system net_admin inet net_raw shell misc adb log input
+    seclabel u:r:logoem:s0
+
+on property:persist.asus.savelogs=0
+    start deletelog
+
+service savelogs /system/bin/savelogs
+    class late_start
+    user root
+    group system net_admin inet net_raw shell misc adb log input
+    oneshot
+    disabled
+    seclabel u:r:savelogs:s0
+
+service savelogsyd /system/bin/savelogs
+    class late_start
+    user root
+    group system net_admin inet net_raw shell misc adb log input
+    oneshot
+    disabled
+    seclabel u:r:savelogs:s0
+
+on property:persist.asus.savelogs=*
+    start savelogs
+
+service savelogscomplete /system/bin/savelogscomplete
+    class late_start
+    user root
+    group system net_admin inet net_raw shell misc adb log input
+    oneshot
+    disabled
+    seclabel u:r:zygote:s0
+
+on property:persist.asus.savelogs=0
+    start savelogscomplete
+# Huaqin add for BugReporter by yangzhiyuan at 2018/12/11 end
+
+# dihw add for catch powerlog in debug version, temp use with setenforce 0
+service getpowerlog /system/bin/getpowerlog.sh
+    class main
+    user system
+    group system
+    disabled
+    oneshot
+    seclabel u:r:logoem:s0
+
+on property:persist.sys.offlinelog.power=1
+    start getpowerlog
+# dihw add end
+
+service  getpersistlog /vendor/bin/getpersistlog
+    class late_start
+    group system net_admin inet net_raw shell misc adb log input
+    user root
+    oneshot
+    seclabel u:r:logoem:s0
+
+#add by yukai@AMT 20190819 start
+service emmc_prop_init /vendor/bin/sh /vendor/bin/emmc_prop_init.sh
+    class core
+    user root
+    oneshot
+    disabled
+#add by yukai@AMT 20190819 end
+#add by yukai@AMT 20200229 start
+service VerifyVouchers /vendor/bin/VerifyVouchers
+ 	class core
+ 	user root
+ 	oneshot
+ 	disabled
+on property:sys.boot_completed=1
+ 	start VerifyVouchers
+#add by yukai@AMT 20200229 end
+
+on property:aaa.bbb.ccc=0
+    setprop ccc.bbb.aaa 0
+on property:aaa.bbb.ccc=1
+    setprop ccc.bbb.aaa 1
+#add by zhangmeilong for gesture switch
+on property:persist.asus.gesture.switch=1
+    write /proc/tpd_gesture 1
+    write /sys/bus/i2c/devices/4-0038/dclick_mode 1
+    write /sys/bus/i2c/devices/4-0038/swipeup_mode 1
+    write /sys/bus/i2c/devices/4-0038/gesture_mode 1111111
+on property:persist.asus.gesture.switch=0
+    write /proc/tpd_gesture 0
+    write /sys/bus/i2c/devices/4-0038/dclick_mode 0
+    write /sys/bus/i2c/devices/4-0038/swipeup_mode 0
+    write /sys/bus/i2c/devices/4-0038/gesture_mode 0000000
+
+on property:ro.boot.fuse_status=1
+    setprop atd.fuse.ready TRUE
+on property:ro.boot.fuse_status=0
+    setprop atd.fuse.ready FALSE
+
+on property:ro.hq.support.nfc=1
+    start nqnfc_1_1_hal_service
