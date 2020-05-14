@@ -2468,6 +2468,9 @@ vendor/lib64/libgcs-ipc.so
 vendor/lib64/libgcs-osal.so
 vendor/lib64/libgcs.so
 
+# NVRAM
+vendor/bin/nvram_country
+
 # Media
 lib/libFileMux.so
 lib/libmmosal.so
