@@ -44,9 +44,9 @@ on fs
     chmod 777 /sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-00/800f000.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/demo_app_property
     chown system system /sys/devices/soc/800f000.qcom,spmi/spmi-0/spmi0-00/800f000.qcom,spmi:qcom,pm660@0:qcom,qpnp-smb2/demo_app_property
 
-    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence begin
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country sequence begin
     start nvram_country
-    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence end
+    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country sequence end
 
     # Add by AMT.meng.lv, 08/30/2019, Set camera api to camera2 begin
     setprop persist.sys.camera.camera2 true
@@ -54,9 +54,6 @@ on fs
 
 on post-fs
     start emmc_prop_init
-    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence begin
-    start set_dynamic_prop
-    # Add by AMT.meng.lv, 08/29/2019, Optimize the nvram_country and set_dynamic_prop sequence end
 
 on post-fs-data
     chmod 0666 /mnt/vendor/factory/proinfo
@@ -215,14 +212,6 @@ service nvram_country system/vendor/bin/nvram_country
     group system
     oneshot
     disabled
-
-# Modify by AMT.meng.lv,09/09/2019, for set_dynamic_prop check nfc node issue begin
-service set_dynamic_prop /system/vendor/bin/set_dynamic_prop
-    user system
-    group system
-    oneshot
-    disabled
-# Modify by AMT.meng.lv,09/09/2019, for set_dynamic_prop check nfc node issue end
 
 on property:persist.sys.nvinit=Ready
     start nvram_country
