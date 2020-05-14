@@ -191,6 +191,22 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libandroid_net \
     netutils-wrapper-1.0
+    
+# OMX
+PRODUCT_PACKAGES += \
+    libaacwrapper \
+    libc2dcolorconvert \
+    libmm-omxcore \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libOmxCore \
+    libOmxEvrcEnc \
+    libOmxG711Enc \
+    libOmxQcelp13Enc \
+    libOmxSwVencHevc \
+    libOmxVdec \
+    libOmxVenc \
+    libstagefrighthw
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
