@@ -105,6 +105,10 @@ on boot
     chown system system /dev/focaltech_fp
 # Huaqin add for ZQL1820-42 by puqirui at 2018/08/02 end 
 
+# Battery smart charging
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chmod 0666 /sys/class/power_supply/battery/input_suspend
+
 #Create folder dump yuv images while debugging
     mkdir /data/vendor/camera 0770 camera camera
 
