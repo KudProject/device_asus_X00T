@@ -36,10 +36,10 @@ PRODUCT_MODEL := ASUS_X00T
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 TARGET_VENDOR := asus
 TARGET_VENDOR_PRODUCT_NAME := X00T
-PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="sdm660_64-user 10 QKQ1 32 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="crosshatch-user 10 QQ2A.200501.001.B2 6352890 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := sdm660_64-user-10-QKQ1-32-release-keys
+BUILD_FINGERPRINT := google/crosshatch/crosshatch:10/QQ2A.200501.001.B2/6352890:user/release-keys
 
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
