@@ -223,11 +223,6 @@ service adsprpcd /vendor/bin/adsprpcd audiopd
    user media
    group media
 
-service audiod /system/vendor/bin/audiod
-   class late_start
-   user system
-   group system
-
 service vendor.cdsprpcd /vendor/bin/cdsprpcd
    class main
    user system
@@ -346,11 +341,6 @@ service energy-awareness /system/vendor/bin/energy-awareness
     group system
     oneshot
 
-service mdtpd /system/vendor/bin/mdtpd
-    class late_start
-    user root
-    group system radio drmrpc
-
 service vendor.pd_mapper /system/vendor/bin/pd-mapper
      class core
 
@@ -366,15 +356,6 @@ service vendor.pd_mapper /system/vendor/bin/pd-mapper
 #   user root
 #   group gps system qcom_diag diag log inet net_raw
 #   disabled
-
-on property:vold.decrypt=trigger_restart_framework
-   start cnss_diag
-
-service cnss_diag /system/vendor/bin/cnss_diag -q -f -t HELIUM
-   class main
-   user system
-   group system wifi inet sdcard_rw media_rw diag
-   oneshot
 
 service ppd /system/vendor/bin/mm-pp-dpps
     class late_start
@@ -426,12 +407,6 @@ on charger
 #    socket vqtss stream 0660 system system
 #    user system
 #    group system
-
-service seempd /system/bin/seempd
-    class late_start
-    user system
-    group system sdcard_rw
-    socket seempdw dgram 0666 system system
 
 service vendor.hvdcp_opti /system/vendor/bin/hvdcp_opti
      class main
