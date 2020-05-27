@@ -198,10 +198,6 @@ on early-boot
     # add by wildbook at 20190828 ---
 
 on boot
-#    start savelogsyd
-#    setprop qqq.eee.www 1
-#    start getpersistlog
-#    setprop persist.sys.debug.getaplog 1
     chown system system /sys/class/power_supply/battery/charging_enabled
     chmod 0660 /sys/class/power_supply/battery/charging_enabled
     chown system system /sys/class/power_supply/battery/device/smartchg_stop_charging
@@ -216,29 +212,6 @@ service nvram_country system/vendor/bin/nvram_country
 on property:persist.sys.nvinit=Ready
     start nvram_country
 
-#Huaqin add class core for getaplog by miaozhenxing at 20180809 start
-service getaplog /system/bin/getlog -c
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-service stopaplog /system/bin/getlog -s
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-on property:persist.sys.debug.getaplog=1
-    restart getaplog
-on property:persist.sys.debug.getaplog=0
-    start stopaplog
-#Huaqin add class core for getaplog by miaozhenxing at 20180809 end
-
 service battery_fac_cls /system/bin/battery-oem-cls.sh
    class late_start
    user root
@@ -250,37 +223,6 @@ service battery_fac_cls /system/bin/battery-oem-cls.sh
 #add for battery health 20200214
 on property:dbg.battery.changed=1
    start battery_fac_cls
-
-service getqxdmlog /system/bin/getlog -q
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-
-service stopqxdmlog /system/bin/getlog -x
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-
-on property:persist.sys.debug.getqxdmlog=1
-    restart getqxdmlog
-on property:persist.sys.debug.getqxdmlog=0
-    start stopqxdmlog
-
-
-#Huaqin modiy to getqxdm when test smart_pa by zhangjingzhi at 20180312 start
-on property:sys.debug.getqxdmlog=1
-    restart getqxdmlog
-on property:sys.debug.getqxdmlog=0
-    start stopqxdmlog
-#Huaqin modiy to getqxdm when test smart_pa by zhangjingzhi at 20180312 end
 
 service cpanrlog  /vendor/bin/sh /system/etc/cpanrlog.sh
     class late_start
@@ -298,88 +240,6 @@ service cptomblog  /vendor/bin/sh /system/etc/cptomblog.sh
     group system net_admin inet net_raw shell misc adb log input
     seclabel u:r:logoem:s0
 
-service gettcpdumplog /system/bin/getlog -t
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-service stoptcpdumplog /system/bin/getlog -p
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-#huaqin modiy to close default log by taohuipeng at 20180504 for rom start
-#service  getpersistlog /system/bin/getpersistlog
-#    class main
-#    user root
-#    oneshot
-#    seclabel u:r:logoem:s0
-#huaqin modiy to close default log by taohuipeng at 20180504 for rom end
-on property:persist.sys.debug.gettcpdump=1
-    restart gettcpdumplog
-on property:persist.sys.debug.gettcpdump=0
-    start stoptcpdumplog
-
-service getalllog /vendor/bin/sh /vendor/etc/getalllog.sh
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-on property:persist.sys.debug.getalllog=1
-    restart getalllog
-on property:persist.sys.debug.getalllog=0
-    stop getalllog
-
-# Huaqin add for BugReporter by wangxiaowen at 2018/12/11 start
-service deletelog /system/bin/deletelog
-    class late_start
-    disabled
-    user root
-    oneshot
-    group system net_admin inet net_raw shell misc adb log input
-    seclabel u:r:logoem:s0
-
-on property:persist.asus.savelogs=0
-    start deletelog
-
-service savelogs /system/bin/savelogs
-    class late_start
-    user root
-    group system net_admin inet net_raw shell misc adb log input
-    oneshot
-    disabled
-    seclabel u:r:savelogs:s0
-
-service savelogsyd /system/bin/savelogs
-    class late_start
-    user root
-    group system net_admin inet net_raw shell misc adb log input
-    oneshot
-    disabled
-    seclabel u:r:savelogs:s0
-
-on property:persist.asus.savelogs=*
-    start savelogs
-
-service savelogscomplete /system/bin/savelogscomplete
-    class late_start
-    user root
-    group system net_admin inet net_raw shell misc adb log input
-    oneshot
-    disabled
-    seclabel u:r:zygote:s0
-
-on property:persist.asus.savelogs=0
-    start savelogscomplete
-# Huaqin add for BugReporter by yangzhiyuan at 2018/12/11 end
-
 # dihw add for catch powerlog in debug version, temp use with setenforce 0
 service getpowerlog /system/bin/getpowerlog.sh
     class main
@@ -392,13 +252,6 @@ service getpowerlog /system/bin/getpowerlog.sh
 on property:persist.sys.offlinelog.power=1
     start getpowerlog
 # dihw add end
-
-service  getpersistlog /vendor/bin/getpersistlog
-    class late_start
-    group system net_admin inet net_raw shell misc adb log input
-    user root
-    oneshot
-    seclabel u:r:logoem:s0
 
 #add by yukai@AMT 20190819 start
 service emmc_prop_init /vendor/bin/sh /vendor/bin/emmc_prop_init.sh
