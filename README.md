@@ -1,9 +1,4 @@
-# android_device_asus_X00T
-For building lineage-15.1 for Asus Zenfone Max Pro M1 ONLY
-
-To compile
-
-. build/envsetup.sh && brunch X00T
+# device_asus_X00T
 
 The Asus Zenfone Max Pro M1 (codenamed _"X00T"_) is mid-range smartphone from Asus.
 
@@ -14,10 +9,10 @@ Asus Zenfone Max Pro M1 was announced and released in April 2018.
 | Device       | Asus Zenfone Max Pro M1                         |
 | -----------: | :---------------------------------------------- |
 | SoC          | Qualcomm SDM660 Snapdragon 636                  |
-| CPU          | 8x QualcommÃ‚Â® KryoÃ¢â€žÂ¢ 260 up to 1.8GHz          |
+| CPU          | 8x QualcommÃ‚Â® KryoÃ¢â€žÂ¢ 260 up to 1.8GHz    |
 | GPU          | Adreno 509                                      |
 | Memory       | 3GB / 4GB RAM (LPDDR4X)                         |
-| Shipped Android version | 8.1.0                                |
+| Shipped Android version | 8.1.0 (Upgradable to Android 10)     |
 | Storage      | 64GB eMMC 5.1 flash storage                     |
 | Battery      | Non-removable Li-Po 5000 mAh                    |
 | Dimensions   | 159 x 76 x 8.5 mm                               |
