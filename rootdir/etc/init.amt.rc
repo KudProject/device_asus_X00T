@@ -193,8 +193,8 @@ on post-fs-data
 
 on early-boot
     # add by wildbook at 20190828 +++
-     chown system system /dev/input/event3  # stk3x3x-light
-     chown system system /dev/input/event4  # stk3x3x-proximity
+     chown system system /dev/input/event5  # stk3x3x-light
+     chown system system /dev/input/event6  # stk3x3x-proximity
     # add by wildbook at 20190828 ---
 
 on boot
