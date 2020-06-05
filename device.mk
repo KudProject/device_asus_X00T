@@ -81,6 +81,7 @@ $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
     
 # Camera
 PRODUCT_PACKAGES += \
+    libgui_vendor \
     libxml2 \
     Snap
     
@@ -126,6 +127,9 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect.vendor
     
 # GPS
+PRODUCT_PACKAGES += \
+    libsensorndkbridge
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/apdr.conf:$(TARGET_COPY_OUT_VENDOR)/etc/apdr.conf \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
