@@ -84,6 +84,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.0-service-sdm
     
+# NFC-Secure Element
+PRODUCT_PACKAGES += \
+    android.hardware.secure_element@1.0
+    
 # Netutils
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0
