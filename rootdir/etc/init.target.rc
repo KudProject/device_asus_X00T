@@ -167,6 +167,10 @@ on boot
 # DT2W Permission
     chown system system /sys/kernel/touchpanel/dclicknode
     chmod 0664 /sys/kernel/touchpanel/dclicknode
+    
+# Gesture Node Permission
+    chown system system /sys/kernel/touchpanel/gesture_node
+    chmod 0664 /sys/kernel/touchpanel/gesture_node
 
 #Peripheral manager
 service vendor.per_mgr /system/vendor/bin/pm-service
