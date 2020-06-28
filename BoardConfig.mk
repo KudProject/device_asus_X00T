@@ -103,7 +103,7 @@ TARGET_ENABLE_MEDIADRM_64 := true
 ifeq ($(HOST_OS),linux)
     ifeq ($(WITH_DEXPREOPT),)
       WITH_DEXPREOPT := true
-      WITH_DEXPREOPT_PIC := true
+      WITH_DEXPREOPT_PIC := false
       ifneq ($(TARGET_BUILD_VARIANT),user)
         # Retain classes.dex in APK's for non-user builds
         DEX_PREOPT_DEFAULT := nostripping
