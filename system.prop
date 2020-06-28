@@ -1,9 +1,3 @@
-persist.asus.mupload.enable=0
-persist.asus.autoupload.enable=0
-persist.asus.csc.3gupload=0
-persist.asus.csc.deletelog=0
-asus.build.sub.version=14.2010.1611.10.3
-
 #
 # from device/qcom/sdm660_64/system.prop
 #
@@ -72,9 +66,6 @@ persist.mm.enable.prefetch=true
 
 #prefer HW codec over SW for thumbnail
 media.stagefright.thumbnail.prefer_hw_codecs=true
-
-# Media Profile
-media.settings.xml=/vendor/etc/media_profiles_vendor.xml
 
 #property to enable narrow search range for video encoding
 vidc.enc.target_support_bframe=1
