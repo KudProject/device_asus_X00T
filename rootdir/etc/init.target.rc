@@ -237,6 +237,13 @@ service ppd /system/vendor/bin/mm-pp-dpps
     socket pps stream 0660 system system
     disabled
 
+service vendor.nfc_hal_service /vendor/bin/hw/android.hardware.nfc@1.1-service
+    override
+    class hal
+    user nfc
+    group nfc
+    disabled
+
 on property:init.svc.surfaceflinger=stopped
     stop ppd
 
@@ -254,6 +261,9 @@ on property:init.svc.zygote=running
 
 on property:init.svc.zygote=restarting
     stop ppd
+
+on property:ro.boot.product.hardware.sku=X00T
+    enable vendor.nfc_hal_service
 
 on charger
     start qcom-post-boot

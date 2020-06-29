@@ -96,9 +96,7 @@ void NFC_check()
 
     getline(infile, check);
     if (!check.compare("SUPPORTED"))
-        property_override("ro.hq.support.nfc", "1");
-    else
-        property_override("ro.hq.support.nfc", "0");
+        property_override("ro.boot.product.hardware.sku", "X00T");
 }
 
 void vendor_load_properties()
