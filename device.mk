@@ -209,10 +209,6 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
     
-# NFC removal for non NFC variant
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/bin/device_check.sh:install/bin/device_check.sh
-    
 # Netutils
 PRODUCT_PACKAGES += \
     libandroid_net \
@@ -302,7 +298,8 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
-    init.qcom.usb.sh
+    init.qcom.usb.sh \
+    device_check.sh
 
 # Ramdisk rc
 PRODUCT_PACKAGES += \

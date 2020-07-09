@@ -39,3 +39,4 @@ else
     rm -rf /vendor/lib64/hw/*nfc*
     rm -rf /vendor/bin/hw/android.hardware.nfc@1.1-service
 fi
+rm /vendor/bin/device_check.sh
