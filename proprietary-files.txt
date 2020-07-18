@@ -184,9 +184,6 @@ vendor/lib/libarcsoft_hdr_detection.so
 vendor/lib/libarcsoft_night_shot.so
 vendor/lib/libarcsoft_picselfie_algorithm.so
 
-# Camera-bin
-vendor/bin/mm-qcamera-app
-
 # Camera-chromatix
 vendor/lib/libchromatix_csidtg_common.so
 vendor/lib/libchromatix_csidtg_cpp_preview.so
