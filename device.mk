@@ -148,6 +148,11 @@ PRODUCT_COPY_FILES += \
 # HIDL HALs
 $(call inherit-product, $(LOCAL_PATH)/hidl-hals.mk)
 
+# HwBinder
+PRODUCT_PACKAGES += \
+    libhwbinder \
+    libhwbinder.vendor
+
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
