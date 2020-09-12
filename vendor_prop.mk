@@ -99,6 +99,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.expose.aux=1 \
     persist.vendor.camera.mpo.disabled=1 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam
+    
+# Charger
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.charger.enable_suspend=true
 
 # Dalvik overrides
 PRODUCT_PROPERTY_OVERRIDES += \
