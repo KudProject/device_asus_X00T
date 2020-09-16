@@ -60,6 +60,10 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+    
+    product/lib64/libdpmframework.so)
+        patchelf --add-needed libdpmframework_shim.so "${2}"
+        ;;
 
     # Load vndk 29 libprotobuf
     vendor/lib64/libwvhidl.so)
