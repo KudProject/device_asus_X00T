@@ -76,6 +76,9 @@ PATCH := $(shell ($(LOCAL_PATH)/audio_patch.sh))
 PRODUCT_PACKAGES += \
     libbthost_if
     
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
+    
 # Call the proprietary setup
 $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
     
