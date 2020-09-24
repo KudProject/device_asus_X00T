@@ -75,6 +75,9 @@ vendor.vidc.enc.disable_bframes=1
 #vendor.vidc.dec.enable.downscalar=1
 # Del by AMT.meng.lv, 11/07/2019, disable vidc decoder downscalar to fix some android.media.cts.DecodeAccuracyTest cases of CtsMediaTestCases issue end
 
+# disable PQ feature by default
+vendor.vidc.enc.disable.pq=true
+
 # Additional buffers shared between Camera and Video
 vidc.enc.dcvs.extra-buff-count=2
 
