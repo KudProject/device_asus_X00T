@@ -115,6 +115,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.gralloc.disable_ahardware_buffer=1 \
     vendor.video.disable.ubwc=1 \
     ro.opengles.version=196610
 
