@@ -96,6 +96,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.vendor.camera.dual.isp.sync=0 \
     persist.vendor.camera.expose.aux=1 \
     persist.vendor.camera.mpo.disabled=1 \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam
