@@ -999,8 +999,8 @@ vendor/bin/slim_daemon
 vendor/bin/xtra-daemon
 vendor/etc/cacert_location.pem
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
-vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
+-vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
+-vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
 vendor/etc/xtra_root_cert.pem
 vendor/lib/hw/android.hardware.gnss@2.0-impl-qti.so
 vendor/lib/hw/vendor.qti.gnss@3.0-impl.so
