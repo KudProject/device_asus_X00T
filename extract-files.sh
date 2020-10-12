@@ -66,7 +66,7 @@ function blob_fixup() {
         ;;
 
     # Load vndk 29 libprotobuf
-    vendor/lib64/libwvhidl.so)
+    vendor/lib64/libwvhidl.so | vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so)
         patchelf --replace-needed "libprotobuf-cpp-lite.so" "libprotobuf-cpp-lite-v29.so" "${2}"
         ;;
 
