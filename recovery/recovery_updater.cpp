@@ -27,6 +27,7 @@
 #include <time.h>
 #include <unistd.h>
 
+#include <android-base/stringprintf.h>
 #include "edify/expr.h"
 #include "otautil/error_code.h"
 #include "updater/install.h"
@@ -184,8 +185,10 @@ Value * VerifyModemFn(const char *name, State *state, const std::vector<std::uni
     }
 
     ret = 0;
+    auto updater = state->updater;
     for (i = 0; i < argv.size(); i++) {
-        uiPrintf(state, "Checking for MODEM build time-stamp %s\n", modem_version[i].c_str());
+        updater->UiPrint(android::base::StringPrintf("Checking for MODEM build time-stamp %s\n",
+                                                     modem_version[i].c_str()));
 
         memset(&tm2, 0, sizeof(tm));
         strptime(modem_version[i].c_str(), "%Y-%m-%d %H:%M:%S", &tm2);
