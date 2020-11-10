@@ -151,6 +151,10 @@ PRODUCT_COPY_FILES += \
 # HIDL HALs
 $(call inherit-product, $(LOCAL_PATH)/hidl-hals.mk)
 
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor
+
 # HwBinder
 PRODUCT_PACKAGES += \
     libhwbinder \
