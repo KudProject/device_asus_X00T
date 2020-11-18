@@ -6,5 +6,9 @@
   {
     "repository": "android_vendor_asus_X00T",
     "target_path": "vendor/asus"
+  },
+  {
+    "repository": "android_packages_apps_GcamGOPrebuilt",
+    "target_path": "packages/apps/GcamGOPrebuilt"
   }
 ]
