@@ -82,7 +82,7 @@ PRODUCT_PACKAGES += \
     camera.sdm660 \
     libgui_vendor \
     libmm-qcamera \
-    Camera2
+    GCamGOPrebuilt
 
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
