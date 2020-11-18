@@ -85,7 +85,7 @@ $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
 # Camera
 PRODUCT_PACKAGES += \
     libgui_vendor \
-    Snap
+    GCamGOPrebuilt
 
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
