@@ -1111,10 +1111,6 @@ vendor/bin/energy-awareness
 vendor/bin/hw/vendor.qti.hardware.perf@2.0-service
 vendor/bin/msm_irqbalance
 vendor/etc/init/vendor.qti.hardware.perf@2.0-service.rc
-vendor/etc/perf/commonresourceconfigs.xml
-vendor/etc/perf/perfboostsconfig.xml
-vendor/etc/perf/targetconfig.xml
-vendor/etc/perf/targetresourceconfigs.xml
 vendor/lib/libperfconfig.so
 vendor/lib/libperfgluelayer.so
 vendor/lib/libqti-perfd-client.so
@@ -1127,6 +1123,13 @@ vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@2.0.so
+
+# Perf-Configs - from LA.UM.8.2.1.r1-05600-sdm660
+vendor/etc/perf/commonresourceconfigs.xml|827c63cb52552af0c19a4735430f98334e1760bf
+vendor/etc/perf/perfconfigstore.xml|0f008806e25fb9cc4fdd9bac6a17b73269cc60cd
+vendor/etc/perf/targetresourceconfigs.xml|4b5d972cf9a58f69dccd99ca305c5b00425cc3fc
+vendor/etc/perf/perfboostsconfig.xml|963413248507d48a8704979ef0a9160ab4019d98
+vendor/etc/perf/targetconfig.xml|dbc6dc566f70b687fa3a740441aef7f0252b1128
 
 # Postprocessing
 vendor/bin/hw/vendor.display.color@1.0-service
