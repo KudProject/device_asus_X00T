@@ -315,6 +315,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     rild \
+    libavservices_minijail.vendor \
     librmnetctl \
     libprotobuf-cpp-full
 
