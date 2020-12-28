@@ -302,9 +302,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     fstab.qcom \
     init.asus.rc \
-    init.msm.usb.configfs.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
+    init.qti.dcvs.sh \
     init.target.rc \
     ueventd.qcom.rc \
     init.safailnet.rc
