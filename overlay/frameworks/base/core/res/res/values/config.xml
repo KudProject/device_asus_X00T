@@ -538,9 +538,6 @@
      <string name="config_SmartChargingSupspendValue" translatable="false">1</string>
      <string name="config_SmartChargingResumeValue" translatable="false">0</string>
 
-    <!-- FPSInfoService Fps file path -->
-     <string name="config_fpsInfoSysNode" translatable="false">/sys/devices/virtual/graphics/fb0/measured_fps</string>
-
     <!-- Specify if the fingerprint hardware support gestures-->
      <bool name="config_fingerprintSupportsGestures">true</bool>
 
