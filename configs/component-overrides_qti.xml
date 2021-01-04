@@ -16,6 +16,6 @@
         <component class=".avrcp.AvrcpTargetService" enabled="false" />
         <component class=".avrcpcontroller.AvrcpControllerService" enabled="true" />
         <component class=".ba.BATService" enabled="true" />
-        <component class=".hid.HidDeviceService" enabled="false" />
+        <component class=".hid.HidDeviceService" enabled="true" />
     </component-override>
 </config>
