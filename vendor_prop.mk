@@ -37,7 +37,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Audio feature
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.audio.feature.a2dp_offload.enable=false \
+    vendor.audio.feature.a2dp_offload.enable=true \
     vendor.audio.feature.afe_proxy.enable=true \
     vendor.audio.feature.anc_headset.enable=true \
     vendor.audio.feature.audiozoom.enable=false \
@@ -84,12 +84,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.bluetooth.a2dp_offload.cap=sbc-aac-aptx-aptxhd-ldac \
-    persist.bluetooth.a2dp_offload.disabled=true \
+    persist.bluetooth.a2dp_offload.disabled=false \
     persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxhd-aac \
     persist.vendor.bt.aac_frm_ctl.enabled=true \
     persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxhd-aac-ldac \
     persist.vendor.qcom.bluetooth.enable.splita2dp=true \
-    ro.bluetooth.a2dp_offload.supported=false \
+    ro.bluetooth.a2dp_offload.supported=true \
     ro.vendor.bluetooth.wipower=false \
     vendor.qcom.bluetooth.soc=cherokee
 
