@@ -291,8 +291,7 @@ PRODUCT_COPY_FILES += \
 
 # QCOM
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti-system.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
 
 # QMI
 PRODUCT_PACKAGES += \
