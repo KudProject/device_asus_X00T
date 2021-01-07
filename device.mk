@@ -300,7 +300,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk Scripts
 PRODUCT_PACKAGES += \
     init.class_main.sh \
-    init.hw.qcom.sh \
     init.qcom.post_boot.sh \
     init.qcom.sensors.sh \
     init.qcom.sh \
@@ -309,8 +308,6 @@ PRODUCT_PACKAGES += \
 # Ramdisk rc
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    init.amt.rc \
-    init.amt.target.rc \
     init.msm.usb.configfs.rc \
     init.qcom.rc \
     init.qcom.usb.rc \

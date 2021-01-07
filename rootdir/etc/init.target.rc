@@ -27,8 +27,6 @@
 #
 #
 
-import /vendor/etc/init/hw/init.amt.rc
-
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1
@@ -39,9 +37,6 @@ on init
     write /dev/stune/top-app/schedtune.colocate 1
 
 on fs
-    wait /dev/block/platform/soc/${ro.boot.bootdevice}
-    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
-    
     mkdir /mnt/vendor/dsp 0770 root root
     copy /vendor/dsp/cdsp/fastrpc_shell_3 /mnt/vendor/dsp/fastrpc_shell_3
     chmod 0644 /mnt/vendor/dsp/fastrpc_shell_3
@@ -92,18 +87,6 @@ on boot
     chown system system /persist/speccfg/vendor_persist.prop
     chown system system /persist/speccfg/submask
     chown system system /persist/speccfg/partition
-# Huaqin modify for ZQL1650-143 by wangxiang at 2018/01/23 start 
-    chmod 0666 /dev/fpsdev0
-    chown system system /dev/fpsdev0
-# Huaqin modify for ZQL1650-143 by wangxiang at 2018/01/23 end 
-# Huaqin add for ZQL1650-143 by wangxiang at 2018/02/09 end 
-    chmod 0666 /dev/goodix_fp
-    chown system system /dev/goodix_fp
-# Huaqin add for ZQL1650-143 by wangxiang at 2018/02/09 end 
-# Huaqin add for ZQL1820-42 by puqirui at 2018/08/02 start 
-    chmod 0666 /dev/focaltech_fp
-    chown system system /dev/focaltech_fp
-# Huaqin add for ZQL1820-42 by puqirui at 2018/08/02 end 
 
 # Battery smart charging
     chown system system /sys/class/power_supply/battery/input_suspend
@@ -163,14 +146,6 @@ on boot
     setprop vendor.usb.qdss.inst.name "qdss"
     write /sys/module/usb_f_qcrndis/parameters/rndis_dl_max_xfer_size 15916
     setprop sys.usb.configfs 1
-    
-# DT2W Permission
-    chown system system /sys/kernel/touchpanel/dclicknode
-    chmod 0664 /sys/kernel/touchpanel/dclicknode
-    
-# Gesture Node Permission
-    chown system system /sys/kernel/touchpanel/gesture_node
-    chmod 0664 /sys/kernel/touchpanel/gesture_node
 
 #Peripheral manager
 service vendor.per_mgr /system/vendor/bin/pm-service
