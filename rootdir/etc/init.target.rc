@@ -27,6 +27,8 @@
 #
 #
 
+import /vendor/etc/init/hw/init.asus.rc
+
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
     write /dev/stune/top-app/schedtune.sched_boost_no_override 1

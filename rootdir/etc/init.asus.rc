@@ -1,0 +1,116 @@
+# Copyright (c) 2013-2018, 2020 The Linux Foundation. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are
+# met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above
+#       copyright notice, this list of conditions and the following
+#       disclaimer in the documentation and/or other materials provided
+#       with the distribution.
+#     * Neither the name of The Linux Foundation nor the names of its
+#       contributors may be used to endorse or promote products derived
+#       from this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
+# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
+# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
+# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+# action trigger order:
+# early-init -> init -> late-init -> early-fs -> factory-fs -> fs -> post-fs -> late-fs -> post-fs-data ->
+# load_persist_props_action -> zygote-start -> firmware_mounts_complete -> early-boot -> boot -> mmi
+
+on fs
+    # move from device/qcom/sdm660_64/init.target.rc start
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+    mount_all /vendor/etc/fstab.qcom
+    swapon_all /vendor/etc/fstab.qcom
+    chown root system /mnt/vendor/persist
+    chmod 0771 /mnt/vendor/persist
+    mkdir /mnt/vendor/persist/data 0700 system system
+    mkdir /mnt/vendor/persist/bms 0700 root system
+    restorecon_recursive /mnt/vendor/persist
+    write /sys/kernel/boot_adsp/boot 1
+    # move from device/qcom/sdm660_64/init.target.rc end
+
+    # Optimize the nvram_country sequence
+    start nvram_country
+
+    # Enable Cam2Api
+    setprop persist.sys.camera.camera2 true
+
+on post-fs-data
+	chown system system /sys/class/leds/red/blink
+	chown system system /sys/class/leds/green/blink
+
+on early-boot
+     chown system system /dev/input/event5  # stk3x3x-light
+     chown system system /dev/input/event6  # stk3x3x-proximity
+
+on boot
+    # Add permission for light/proximity sensor
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_delay
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-proximity/sensors_name
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_delay
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_calibrate
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_enable_wakeup
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-proximity/sensors_name
+
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_delay
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_calibrate
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_flush
+    chmod 0644 /sys/class/sensors/stk3x1x-light/sensors_name
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_enable
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_delay
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_calibrate
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_enable_wakeup
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_flush
+    chown system system /sys/class/sensors/stk3x1x-light/sensors_name
+
+    chown radio radio sys/module/stk3x1x/parameters/call_status_flag
+
+    # Permission for cdfinger and goodix fingerprint
+    chmod 0666 /dev/fpsdev0
+    chown system system /dev/fpsdev0
+    chmod 0666 /dev/goodix_fp
+    chown system system /dev/goodix_fp
+
+    # DT2W Permission
+    chown system system /sys/kernel/touchpanel/dclicknode
+    chmod 0664 /sys/kernel/touchpanel/dclicknode
+
+    # Gesture Node Permission
+    chown system system /sys/kernel/touchpanel/gesture_node
+    chmod 0664 /sys/kernel/touchpanel/gesture_node
+
+on property:ro.config.versatility=*
+    write /proc/countrycode ${ro.config.versatility}
+
+# Nvram country service
+service nvram_country system/vendor/bin/nvram_country
+    user system
+    group system
+    oneshot
+    disabled
+
+# Misc changes
+# Disable CDSP in init.qcom.post_boot.sh
