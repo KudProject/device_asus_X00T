@@ -110,15 +110,4 @@ It allows additional grants on top of privapp-permissions-platform.xml
         <permission name="android.permission.READ_BLOCKED_NUMBERS" />
         <permission name="android.permission.VIBRATE" />
     </privapp-permissions>
-
-    <privapp-permissions package="com.facebook.system">
-        <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
-	<permission name="android.permission.DELETE_PACKAGES"/>
-	<permission name="android.permission.INSTALL_PACKAGES"/>
-	<permission name="android.permission.REAL_GET_TASKS"/>
-    </privapp-permissions>
-
-    <privapp-permissions package="ru.yandex.searchplugin">
-        <permission name="android.permission.PACKAGE_USAGE_STATS"/>
-    </privapp-permissions>
 </permissions>
