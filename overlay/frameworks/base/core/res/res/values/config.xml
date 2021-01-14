@@ -559,9 +559,6 @@
     <!-- Max visible notification icons -->
      <integer name="config_maxVisibleNotificationIcons">8</integer>
      <integer name="config_maxVisibleNotificationIconsWhenDark">9</integer>
-     
-    <!-- Disable rounded corners on windows to improve graphics performance -->
-     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
 
     <!-- The list of components which should be automatically disabled for a specific device. -->
      <string-array name="config_disabledComponents" translatable="false">
