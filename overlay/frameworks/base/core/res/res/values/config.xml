@@ -541,9 +541,6 @@
 
     <!-- Specify if the fingerprint hardware support gestures-->
      <bool name="config_fingerprintSupportsGestures">true</bool>
-
-    <!-- Flashlight on power button -->
-     <integer name="config_flashlightProximityTimeout">-1</integer>
      
     <!-- Smart replies in notifications: Whether we disable the feature unless the app targets P -->
     <bool name="config_smart_replies_in_notifications_requires_targeting_p">false</bool>
@@ -555,7 +552,7 @@
      <string name="config_sysGPULoad">/sys/kernel/gpu/gpu_busy</string>
      <integer name="config_sysCPUTempMultiplier">1</integer>
      <integer name="config_sysBatteryTempMultiplier">10</integer>
-     
+
     <!-- Max visible notification icons -->
      <integer name="config_maxVisibleNotificationIcons">8</integer>
      <integer name="config_maxVisibleNotificationIconsWhenDark">9</integer>
