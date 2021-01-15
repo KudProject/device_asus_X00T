@@ -78,10 +78,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.asus_sdm660
 
-# LiveDisplay native
-#PRODUCT_PACKAGES += \
-#    vendor.lineage.livedisplay@2.0-service-sdm
-
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
