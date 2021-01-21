@@ -917,7 +917,7 @@ vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
 vendor/lib/liboemcrypto.so
 vendor/lib64/liboemcrypto.so
-vendor/lib64/libwvhidl.so
+vendor/lib64/libwvhidl.so|2900aa98d85960c63d6b7c4a4e17ea6605f985ae
 
 # ESE-Powermanager
 product/lib/vendor.qti.esepowermanager@1.0.so
@@ -941,7 +941,7 @@ vendor/lib64/hw/fingerprint.default.so
 vendor/lib64/libgf_ca.so
 vendor/lib64/libgf_hal.so
 vendor/lib64/libqfp-service.so
-vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so
+vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0-service.so|bd48b4c8caae121d7d6dbfb719f524db0b4f2c83
 vendor/lib64/libvendor.goodix.hardware.fingerprint@1.0.so
 vendor/lib64/vendor.qti.hardware.fingerprint@1.0.so
 
@@ -1316,13 +1316,13 @@ vendor/lib64/libqcmaputils.so
 vendor/lib64/libqcrilFramework.so
 vendor/lib64/libqrtr.so
 vendor/lib64/libqsocket.so
-vendor/lib64/libril-qc-hal-qmi.so
+vendor/lib64/libril-qc-hal-qmi.so|0632079a357e4d99c49c72894bc8ec47acb79bde
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/librilqmiservices.so
-vendor/lib64/libsettings.so
+vendor/lib64/libsettings.so|a95fccbbacb098994090bc71a963d18acba558a1
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/qcrild_librilutils.so
 vendor/lib64/qtibus.so
