@@ -70,15 +70,6 @@ vendor/lib/libaudioparsers.so
 vendor/lib/libdrc.so
 vendor/lib/libqtigef.so
 vendor/lib/libsurround_3mic_proc.so
-vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbloader.so
-vendor/lib64/libacdbrtac.so
-vendor/lib64/libadiertac.so
-vendor/lib64/libaudcal.so
-vendor/lib64/libaudioalsa.so
-vendor/lib64/libaudioparsers.so
--vendor/lib64/libaudio_log_utils.so
-vendor/lib64/libqtigef.so
 
 # Audio-FX
 vendor/lib/soundfx/libasphere.so
@@ -86,21 +77,8 @@ vendor/lib/soundfx/libaudiopreprocessing.so
 vendor/lib/soundfx/libqcbassboost.so
 vendor/lib/soundfx/libqcreverb.so
 vendor/lib/soundfx/libqcvirt.so
-vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libaudiopreprocessing.so
-vendor/lib64/soundfx/libqcbassboost.so
-vendor/lib64/soundfx/libqcreverb.so
-vendor/lib64/soundfx/libqcvirt.so
 
 # Audio-ACDB
-vendor/etc/acdbdata/MTP/MTP_Bluetooth_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_General_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Global_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Handset_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Hdmi_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Headset_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_Speaker_cal.acdb
-vendor/etc/acdbdata/MTP/MTP_workspaceFile.qwsp
 vendor/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_General_cal.acdb
 vendor/etc/acdbdata/QRD/QRD_Global_cal.acdb
@@ -854,29 +832,7 @@ vendor/lib64/libdpmqmihal.so
 
 # DRM
 vendor/bin/qseecomd
-vendor/lib/libbase64.so
-vendor/lib/libcpion.so
-vendor/lib/libcppf.so
-vendor/lib/libdrmfs.so
-vendor/lib/libdrmtime.so
-vendor/lib/libGPQTEEC_vendor.so
-vendor/lib/libGPreqcancel.so
-vendor/lib/libGPreqcancel_svc.so
-vendor/lib/libGPTEE_vendor.so
-vendor/lib/libqisl.so
-vendor/lib/libQSEEComAPI.so
-vendor/lib/librmp.so
-vendor/lib/librpmb.so
-vendor/lib/libsdedrm.so
-vendor/lib/libsecureui.so
-vendor/lib/libSecureUILib.so
-vendor/lib/libsecureui_svcsock.so
-vendor/lib/libsi.so
-vendor/lib/libssd.so
-vendor/lib/libStDrvInt.so
-vendor/lib/libtzdrmgenprov.so
 vendor/lib64/libbase64.so
-vendor/lib64/libcpion.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libGPQTEEC_vendor.so
@@ -896,18 +852,9 @@ vendor/lib64/libssd.so
 vendor/lib64/libStDrvInt.so
 vendor/lib64/libtzdrmgenprov.so
 
-# DRM-HDCP
-vendor/lib/libhdcpsrm.so
-vendor/lib/libmm-hdcpmgr.so
-vendor/lib64/libhdcpsrm.so
-vendor/lib64/libmm-hdcpmgr.so
-
 # DRM-Qteeconnector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
 vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
-vendor/lib/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
-vendor/lib/libQTEEConnector_vendor.so
-vendor/lib/vendor.qti.hardware.qteeconnector@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
@@ -915,17 +862,18 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 # DRM-Widevine
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc
-vendor/lib/liboemcrypto.so
+vendor/lib64/libcpion.so
 vendor/lib64/liboemcrypto.so
 vendor/lib64/libwvhidl.so|2900aa98d85960c63d6b7c4a4e17ea6605f985ae
 
+# DRM-Widevine-HDCP
+vendor/lib64/libhdcpsrm.so
+vendor/lib64/libmm-hdcpmgr.so
+
 # ESE-Powermanager
-product/lib/vendor.qti.esepowermanager@1.0.so
 product/lib64/vendor.qti.esepowermanager@1.0.so
 vendor/bin/hw/vendor.qti.esepowermanager@1.0-service
 vendor/etc/init/vendor.qti.esepowermanager@1.0-service.rc
-vendor/lib/hw/vendor.qti.esepowermanager@1.0-impl.so
-vendor/lib/vendor.qti.esepowermanager@1.0.so
 vendor/lib64/hw/vendor.qti.esepowermanager@1.0-impl.so
 vendor/lib64/vendor.qti.esepowermanager@1.0.so
 
@@ -935,7 +883,6 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service
 vendor/bin/qfp-daemon
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc
 vendor/etc/permissions/qti_fingerprint_interface.xml
-vendor/lib/vendor.qti.hardware.fingerprint@1.0.so
 vendor/lib64/hw/cdfinger.fingerprint.default.so
 vendor/lib64/hw/fingerprint.default.so
 vendor/lib64/libgf_ca.so
@@ -954,14 +901,9 @@ vendor/firmware/novatek_ts_fw_txd.bin|3841353c8f050a81178f9a5667b1e7cd5bdcc514
 vendor/firmware/startup_fw_update.img|24ce9ee6defe4dc2861f27c1087fc13a44212b9d
 
 # FM
-lib/fm_helium.so
-lib/libfm-hci.so
 lib64/fm_helium.so
 lib64/libfm-hci.so
--product/lib/vendor.qti.hardware.fm@1.0.so
 -product/lib64/vendor.qti.hardware.fm@1.0.so
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
-vendor/lib/vendor.qti.hardware.fm@1.0.so
 vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
 
@@ -977,12 +919,6 @@ etc/permissions/izat.xt.srv.xml
 etc/permissions/privapp-permissions-com.qualcomm.location.xml
 lib64/liblocationservice_jni.so
 lib64/libxt_native.so
-product/lib/vendor.qti.gnss@1.0.so
-product/lib/vendor.qti.gnss@1.1.so
-product/lib/vendor.qti.gnss@1.2.so
-product/lib/vendor.qti.gnss@2.0.so
-product/lib/vendor.qti.gnss@2.1.so
-product/lib/vendor.qti.gnss@3.0.so
 product/lib64/vendor.qti.gnss@1.0.so
 product/lib64/vendor.qti.gnss@1.1.so
 product/lib64/vendor.qti.gnss@1.2.so
@@ -1000,31 +936,6 @@ vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc
 -vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml
 -vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml
 vendor/etc/xtra_root_cert.pem
-vendor/lib/hw/android.hardware.gnss@2.0-impl-qti.so
-vendor/lib/hw/vendor.qti.gnss@3.0-impl.so
-vendor/lib/libbatching.so
-vendor/lib/libdataitems.so
-vendor/lib/libgdtap.so
-vendor/lib/libgeofencing.so
-vendor/lib/libizat_client_api.so
-vendor/lib/libizat_core.so
-vendor/lib/liblbs_core.so
-vendor/lib/liblocationservice.so
-vendor/lib/liblocationservice_glue.so
-vendor/lib/liblocation_api.so
-vendor/lib/libloc_api_v02.so
-vendor/lib/libloc_core.so
-vendor/lib/liblowi_client.so
-vendor/lib/liblowi_wifihal.so
-vendor/lib/libslimclient.so
-vendor/lib/libxtadapter.so
-vendor/lib/vendor.qti.gnss@1.0.so
-vendor/lib/vendor.qti.gnss@1.1.so
-vendor/lib/vendor.qti.gnss@1.2.so
-vendor/lib/vendor.qti.gnss@2.0.so
-vendor/lib/vendor.qti.gnss@2.1.so
-vendor/lib/vendor.qti.gnss@3.0-service.so
-vendor/lib/vendor.qti.gnss@3.0.so
 vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so
 vendor/lib64/libbatching.so
@@ -1055,11 +966,6 @@ vendor/lib64/vendor.qti.gnss@3.0-service.so
 vendor/lib64/vendor.qti.gnss@3.0.so
 
 # GPS-Hardware
-vendor/lib/libaoa.so
-vendor/lib/libgarden.so
-vendor/lib/libgnss.so
-vendor/lib/libgnsspps.so
-vendor/lib/libgps.utils.so
 vendor/lib64/libaoa.so
 vendor/lib64/libgarden.so
 vendor/lib64/libgnss.so
@@ -1140,10 +1046,6 @@ vendor/lib64/hw/vulkan.sdm660.so
 # Keymaster
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
-vendor/lib/hw/android.hardware.keymaster@3.0-impl-qti.so
-vendor/lib/libkeymasterdeviceutils.so
-vendor/lib/libkeymasterprovision.so
-vendor/lib/libkeymasterutils.so
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterprovision.so
@@ -1186,23 +1088,7 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/lib/libOmxVideoDSMode.so
 vendor/lib/libOmxWmaDec.so
 vendor/lib/libvqzip.so
-vendor/lib64/libAlacSwDec.so
-vendor/lib64/libApeSwDec.so
-vendor/lib64/libFlacSwDec.so
 -vendor/lib64/libgpustats.so
-vendor/lib64/libI420colorconvert.so
-vendor/lib64/libmm-color-convertor.so
-vendor/lib64/libOmxAacDec.so
-vendor/lib64/libOmxAlacDec.so
-vendor/lib64/libOmxAlacDecSw.so
-vendor/lib64/libOmxAmrDec.so
-vendor/lib64/libOmxAmrwbplusDec.so
-vendor/lib64/libOmxApeDec.so
-vendor/lib64/libOmxApeDecSw.so
-vendor/lib64/libOmxEvrcDec.so
-vendor/lib64/libOmxG711Dec.so
-vendor/lib64/libOmxQcelp13Dec.so
-vendor/lib64/libOmxWmaDec.so
 
 # Perf
 vendor/bin/energy-awareness
@@ -1420,11 +1306,8 @@ vendor/lib64/sensors.ssc.so
 
 # Sensors calibration
 -product/framework/vendor.qti.hardware.sensorscalibrate-V1.0-java.jar
-product/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
 product/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 vendor/etc/calmodule.cfg
-vendor/lib/libcalmodule_common.so
-vendor/lib/sensor_calibrate.so
 vendor/lib64/libcalmodule_common.so
 vendor/lib64/sensor_calibrate.so
 
@@ -1464,12 +1347,6 @@ vendor/lib64/libtime_genoff.so
 vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
-
-# Universal Bandwidth Compression (UBWC)
-vendor/lib/libstreamparser.so
-vendor/lib/libUBWC.so
-vendor/lib64/libstreamparser.so
-vendor/lib64/libUBWC.so
 
 # Widevine-Firmware
 vendor/firmware/widevine.b00
