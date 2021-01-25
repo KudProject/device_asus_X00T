@@ -2,3 +2,6 @@
 /dsp			   u:object_r:dsp_file:s0
 /firmware		   u:object_r:firmware_file:s0
 /persist	           u:object_r:persist_file:s0
+
+/data/vendor/metadata_apex(/.*)?              u:object_r:apex_metadata_file:s0
+/data/vendor/metadata_apex/sessions(/.*)?     u:object_r:apex_metadata_file:s0
