@@ -74,9 +74,6 @@
          and the screen off animation has been performed. -->
      <bool name="config_dozeAfterScreenOffByDefault">false</bool>
 
-    <!--  Whether Multiuser UI should be shown -->
-     <bool name="config_enableMultiUserUI">false</bool>
-
     <!-- Whether to enable network location overlay which allows network
          location provider to be replaced by an app at run-time. When disabled,
          only the config_networkLocationProviderPackageName package will be
@@ -264,9 +261,6 @@
 
     <!-- Slow brightness animation ramp rate in brightness units per second-->
      <integer name="config_brightness_ramp_rate_slow">40</integer>
-
-    <!--  Maximum number of supported users -->
-     <integer name="config_multiuserMaximumUsers">1</integer>
 
     <!-- Default value for led color when battery is fully charged -->
      <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer>
@@ -487,13 +481,6 @@
         <item>gprs:4092,8760,11680,4096,8760,11680</item>
         <item>evdo:4094,87380,524288,4096,16384,262144</item>
     </string-array>
-    
-    <!-- List of regexpressions describing the interface (if any) that represent tetherable
-         Wifi P2P interfaces.  If the device doesn't want to support tethering over Wifi P2p this
-         should be empty.  An example would be "p2p-p2p.*" -->
-    <string-array translatable="false" name="config_tether_wifi_p2p_regexs">
-        <item>"p2p\\d"</item>
-    </string-array>
 
     <!-- An Array of "[Connection name],[ConnectivityManager.TYPE_xxxx],
          [associated radio-type],[priority],[restoral-timer(ms)],[dependencyMet]  -->
@@ -547,17 +534,6 @@
 
     <!-- Specify if the fingerprint hardware support gestures-->
      <bool name="config_fingerprintSupportsGestures">true</bool>
-     
-    <!-- Smart replies in notifications: Whether we disable the feature unless the app targets P -->
-    <bool name="config_smart_replies_in_notifications_requires_targeting_p">false</bool>
-    
-    <!-- SystemInfo Sys Nodes -->
-     <string name="config_sysCPUTemp">/sys/class/thermal/thermal_zone5/temp</string>
-     <string name="config_sysBatteryTemp">/sys/class/power_supply/battery/temp</string>
-     <string name="config_sysGPUFreq">/sys/kernel/gpu/gpu_clock</string>
-     <string name="config_sysGPULoad">/sys/kernel/gpu/gpu_busy</string>
-     <integer name="config_sysCPUTempMultiplier">1</integer>
-     <integer name="config_sysBatteryTempMultiplier">10</integer>
 
     <!-- Max visible notification icons -->
      <integer name="config_maxVisibleNotificationIcons">8</integer>
