@@ -524,13 +524,6 @@
     <!-- Whether to artificially interpret all signal strengths as
          one bar higher than they actually are -->
      <bool name="config_inflateSignalStrength">true</bool>
-     
-    <!-- Smart charge sysfs node and value for suspend/resume charging-->
-     <bool name="config_deviceSupportSmartCharging">true</bool>
-     <bool name="config_smartChargingAvailable">true</bool>
-     <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
-     <string name="config_SmartChargingSupspendValue" translatable="false">1</string>
-     <string name="config_SmartChargingResumeValue" translatable="false">0</string>
 
     <!-- Specify if the fingerprint hardware support gestures-->
      <bool name="config_fingerprintSupportsGestures">true</bool>
