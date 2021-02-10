@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_X00T.mk
+    $(LOCAL_DIR)/dot_X00T.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_X00T-user \
-    arrow_X00T-userdebug \
-    arrow_X00T-eng
+    dot_X00T-user \
+    dot_X00T-userdebug \
+    dot_X00T-eng
