@@ -3,5 +3,4 @@ soong_namespace {
 
 subdirs = [
     "usb",
-    "light",
 ]
