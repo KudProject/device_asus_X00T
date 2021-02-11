@@ -149,9 +149,6 @@ TARGET_BOARD_PLATFORM := sdm660
 # Power
 TARGET_USES_INTERACTION_BOOST := true
 
-# Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
 # QCOM hardware
 BOARD_USES_QCOM_HARDWARE := true
 

@@ -369,9 +369,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libtinyxml2
 
-# Vendor properties
--include $(LOCAL_PATH)/vendor_prop.mk
-
 # VNDK
 # Update this list with blob function
 # libstdc++: camera.sdm660
