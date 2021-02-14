@@ -15,10 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_sdm660",
+    name: "libinit_X00TD",
     recovery_available: true,
-    srcs: ["init_sdm660.cpp"],
-    whole_static_libs: ["libbase"],
+    srcs: ["init_X00TD.cpp"],
     include_dirs: [
         "system/core/base/include",
         "system/core/init"
