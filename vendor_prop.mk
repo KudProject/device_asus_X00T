@@ -134,6 +134,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.rlz_ap_whitelist=y0,y5,y6,y7,y9 \
     ro.com.google.rlzbrandcode=ASUP
 
+# Lmk
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.low_ram = false \
+    ro.lmk.log_stats = true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.stagefright.omx_default_rank=0 \
