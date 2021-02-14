@@ -426,7 +426,7 @@ on property:init.svc.zygote=running
 on property:init.svc.zygote=restarting
     stop ppd
 
-on property:ro.boot.product.hardware.sku=X00T
+on property:ro.boot.product.hardware.sku=RU_X00TD
     enable vendor.nfc_hal_service
 
 on charger

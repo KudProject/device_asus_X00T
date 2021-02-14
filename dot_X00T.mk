@@ -29,7 +29,7 @@ $(call inherit-product, $(LOCAL_PATH)/device.mk)
 PRODUCT_BRAND := asus
 PRODUCT_DEVICE := X00T
 PRODUCT_MANUFACTURER := asus
-PRODUCT_MODEL := Asus Zenfone Max Pro M1
+PRODUCT_MODEL := ASUS_X00TD
 PRODUCT_NAME := dot_X00T
 TARGET_VENDOR := asus
 
@@ -39,7 +39,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-asus
 TARGET_BOOT_ANIMATION_RES := 1080
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_MODEL=ASUS_X00T \
     PRIVATE_BUILD_DESC="sdm660_64-user 10 QKQ1 72 release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
