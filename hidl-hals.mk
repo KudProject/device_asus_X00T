@@ -76,7 +76,8 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.asus_sdm660
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -102,9 +103,9 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    android.hardware.radio@1.4 \
-    android.hardware.radio.config@1.2 \
-    android.hardware.secure_element@1.0
+    android.hardware.radio@1.5 \
+    android.hardware.radio.config@1.1 \
+    android.hardware.secure_element@1.1
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -116,8 +117,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
+    vendor.qti.hardware.vibrator.service
 
 # WiFi
 PRODUCT_PACKAGES += \

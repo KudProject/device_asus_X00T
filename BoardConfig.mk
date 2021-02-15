@@ -48,7 +48,7 @@ USE_CUSTOM_AUDIO_POLICY := 1
 endif
 
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
-AUDIO_FEATURE_ENABLED_X00T_TFA98XX := true
+AUDIO_FEATURE_ENABLED_ASUS_TFA98XX := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 USE_XML_AUDIO_POLICY_CONF := 1
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := false
@@ -102,13 +102,14 @@ USE_DEVICE_SPECIFIC_GPS := true
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_X00TD
 TARGET_RECOVERY_DEVICE_MODULES := libinit_X00TD
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 loop.max_part=7
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 loop.max_part=7
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
@@ -116,6 +117,7 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/asus/sdm660
 TARGET_KERNEL_CONFIG := X00T_defconfig
 TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_VERSION := 4.19
 
 ODM_MANIFEST_SKUS += RU_X00TD
 ODM_MANIFEST_RU_X00TD_FILES := $(DEVICE_PATH)/manifest_nfc.xml
