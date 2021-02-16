@@ -299,10 +299,6 @@ PRODUCT_PACKAGES += \
     init.qti.dcvs.sh \
     init.target.rc \
     ueventd.qcom.rc
-    
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_X00T
 
 # RIL
 PRODUCT_PACKAGES += \
