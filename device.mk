@@ -307,10 +307,6 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc \
     init.safailnet.rc
 
-# Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_X00T
-
 # RIL
 PRODUCT_PACKAGES += \
     rild \
