@@ -22,17 +22,15 @@
 
 #include <fstream>
 
-#define LCD_LED         "/sys/class/backlight/panel0-backlight/"
-#define BLUE_LED        "/sys/class/leds/blue/"
+#define LCD_LED         "/sys/class/leds/lcd-backlight/"
+#define RED_LED        "/sys/class/leds/red/"
 #define GREEN_LED       "/sys/class/leds/green/"
 
 #define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
-#define DELAY_OFF       "delay_off"
-#define DELAY_ON        "delay_on"
 
 #define MAX_LED_BRIGHTNESS    255
-#define MAX_LCD_BRIGHTNESS    2047
+#define MAX_LCD_BRIGHTNESS    255
 
 namespace {
 /*
@@ -92,34 +90,25 @@ static void handleBacklight(const LightState& state) {
 }
 
 static void handleNotification(const LightState& state) {
-    uint32_t blueBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
+    uint32_t redBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
     uint32_t greenBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
 
-    /* Disable breathing or blinking */
-    set(BLUE_LED BREATH, 0);
-    set(BLUE_LED DELAY_OFF, 0);
-    set(BLUE_LED DELAY_ON, 0);
+    /* Disable breathing */
+    set(RED_LED BREATH, 0);
+    set(RED_LED BRIGHTNESS, 0);
 
     set(GREEN_LED BREATH, 0);
-    set(GREEN_LED DELAY_OFF, 0);
-    set(GREEN_LED DELAY_ON, 0);
+    set(GREEN_LED BRIGHTNESS, 0);
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
-            /* Breathing */  
-            set(BLUE_LED BREATH, 1);
-            set(GREEN_LED BREATH, 1);
-            break;
         case Flash::TIMED:
-            /* Blinking */
-            set(BLUE_LED DELAY_OFF, state.flashOnMs);
-            set(BLUE_LED DELAY_ON, state.flashOffMs);
-            set(GREEN_LED DELAY_OFF, state.flashOnMs);
-            set(GREEN_LED DELAY_ON, state.flashOffMs);
+            /* Breathing */
+            set(GREEN_LED BREATH, 1);
             break;
         case Flash::NONE:
         default:
-            set(BLUE_LED BRIGHTNESS, blueBrightness);
+            set(RED_LED BRIGHTNESS, redBrightness);
             set(GREEN_LED BRIGHTNESS, greenBrightness);
     }
 }
