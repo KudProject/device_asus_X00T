@@ -90,13 +90,11 @@ static void handleBacklight(const LightState& state) {
 }
 
 static void handleNotification(const LightState& state) {
-    uint32_t redBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
-    uint32_t greenBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
+    uint32_t alpha, red, green;
 
     /* Disable breathing */
     set(RED_LED BREATH, 0);
     set(RED_LED BRIGHTNESS, 0);
-
     set(GREEN_LED BREATH, 0);
     set(GREEN_LED BRIGHTNESS, 0);
 
@@ -108,8 +106,33 @@ static void handleNotification(const LightState& state) {
             break;
         case Flash::NONE:
         default:
-            set(RED_LED BRIGHTNESS, redBrightness);
-            set(GREEN_LED BRIGHTNESS, greenBrightness);
+    
+        /* Get LED color for usecase
+        *
+    	* RED:Solid = Charging
+    	* RED:Breate = Low battery (Currently broken - shows green)
+   	* GREEN:Solid = Charge full
+    	* GREEN:Breate = Notification
+    	*/
+    	// Extract brightness from AARRGGBB
+   	 alpha = (state.color >> 24) & 0xff;
+
+    	// Retrieve each of the RGB colors
+    	red = (state.color >> 16) & 0xff;
+    	green = (state.color >> 8) & 0xff;
+
+    	// Scale RGB colors if a brightness has been applied by the user
+    	if (alpha != 0xff) {
+            red = red * alpha / 0xff;
+            green = green * alpha / 0xff;
+    	}
+
+    	// Avoid orange color
+    	if(red == 0xFF)
+    	   green = 0;
+
+    	set(RED_LED BRIGHTNESS, red);
+    	set(GREEN_LED BRIGHTNESS, green);
     }
 }
 
