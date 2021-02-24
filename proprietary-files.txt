@@ -96,23 +96,18 @@ product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # Camera
 lib64/libseemore.so
-vendor/lib/hw/camera.sdm660.so
 vendor/lib/libcdsprpc.so
 vendor/lib/libdepthmapwrapper.so
 vendor/lib/libflash_pmic.so
-vendor/lib/libhal_dbg.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
 vendor/lib/libmm-qcamera.so
 vendor/lib/libmmjpeg.so
-vendor/lib/libmmjpeg_interface.so
-vendor/lib/libmmlib2d_interface.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmorpho_video_refiner.so
 vendor/lib/libmpbase.so
-vendor/lib/libqomx_core.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
@@ -130,14 +125,6 @@ vendor/lib/libactuator_ov13855_holitech_fp5510a.so
 vendor/lib/libactuator_ov16880_qtech_rear_dw9714a.so
 vendor/lib/libactuator_ov16885_holitech_16m_fp5510a.so
 vendor/lib/libactuator_ov16885_ofilm_16m_dw9714v.so
-
-# Camera-arcsoft
-vendor/lib/libarcsoft_beautyshot.so
-vendor/lib/libarcsoft_dualcam_refocus.so
-vendor/lib/libarcsoft_hdr.so
-vendor/lib/libarcsoft_hdr_detection.so
-vendor/lib/libarcsoft_night_shot.so
-vendor/lib/libarcsoft_picselfie_algorithm.so
 
 # Camera-chromatix
 vendor/lib/libchromatix_csidtg_common.so
@@ -645,7 +632,6 @@ vendor/lib/libmmcamera_hvx_add_constant.so
 vendor/lib/libmmcamera_hvx_grid_sum.so
 vendor/lib/libmmcamera_imglib.so
 vendor/lib/libmmcamera_imglib_faceproc_adspstub.so
-vendor/lib/libmmcamera_interface.so
 vendor/lib/libmmcamera_irs1645.so
 vendor/lib/libmmcamera_isp_abf48.so
 vendor/lib/libmmcamera_isp_aec_bg_stats47.so
