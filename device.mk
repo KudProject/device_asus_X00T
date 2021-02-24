@@ -81,6 +81,7 @@ $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
 
 # Camera
 PRODUCT_PACKAGES += \
+    camera.sdm660 \
     libgui_vendor \
     Snap
 
