@@ -87,10 +87,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service
 
-# NFC-Secure Element
-PRODUCT_PACKAGES += \
-    android.hardware.secure_element@1.0
-
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
@@ -108,8 +104,7 @@ PRODUCT_PACKAGES += \
 # RIL
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.5 \
-    android.hardware.radio.config@1.1 \
-    android.hardware.secure_element@1.1
+    android.hardware.radio.config@1.1
 
 # Thermal
 PRODUCT_PACKAGES += \
