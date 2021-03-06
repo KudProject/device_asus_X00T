@@ -42,10 +42,10 @@
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+static struct light_state_t g_attention;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 static int g_last_backlight_mode = BRIGHTNESS_MODE_USER;
-static int g_attention = 0;
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -53,26 +53,17 @@ char const*const RED_LED_FILE
 char const*const GREEN_LED_FILE
         = "/sys/class/leds/green/brightness";
 
-char const*const BLUE_LED_FILE
-        = "/sys/class/leds/blue/brightness";
-
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
 
 char const*const LCD_FILE2
         = "/sys/class/backlight/panel0-backlight/brightness";
 
-char const*const BUTTON_FILE
-        = "/sys/class/leds/button-backlight/brightness";
+char const*const RED_BREATH_FILE
+        = "/sys/class/leds/red/breath";
 
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
-
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const BLUE_BLINK_FILE
-        = "/sys/class/leds/blue/blink";
+char const*const GREEN_BREATH_FILE
+        = "/sys/class/leds/green/breath";
 
 char const*const PERSISTENCE_FILE
         = "/sys/class/graphics/fb0/msm_fb_persist_mode";
@@ -167,10 +158,10 @@ static int
 set_speaker_light_locked(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    int red, green, blue;
-    int blink;
+    int red, green;
+    int breath = 0;
     int onMS, offMS;
-    unsigned int colorRGB;
+    uint32_t colorRGB;
 
     if(!dev) {
         return -1;
@@ -197,40 +188,19 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     red = (colorRGB >> 16) & 0xFF;
     green = (colorRGB >> 8) & 0xFF;
-    blue = colorRGB & 0xFF;
 
-    if (onMS > 0 && offMS > 0) {
-        /*
-         * if ON time == OFF time
-         *   use blink mode 2
-         * else
-         *   use blink mode 1
-         */
-        if (onMS == offMS)
-            blink = 2;
-        else
-            blink = 1;
-    } else {
-        blink = 0;
-    }
+   if (onMS != 0 && offMS != 0)
+        breath = 1;
 
-    if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-        }
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
+     if (breath) {
+        if (state == &g_notification) {
+                if(write_int(GREEN_BREATH_FILE, breath))
                 write_int(GREEN_LED_FILE, 0);
-        }
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
-        }
+        } else if (write_int(RED_BREATH_FILE, breath))
+                write_int(RED_LED_FILE, 0);
     } else {
         write_int(RED_LED_FILE, red);
         write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
     }
 
     return 0;
@@ -239,11 +209,12 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_battery_locked(struct light_device_t* dev)
 {
-    if (is_lit(&g_battery)) {
-        set_speaker_light_locked(dev, &g_battery);
-    } else {
+    if (is_lit(&g_notification)) {
         set_speaker_light_locked(dev, &g_notification);
+    } else  if(is_lit(&g_attention)) {
+        set_speaker_light_locked(dev, &g_attention);
     }
+     else set_speaker_light_locked(dev, &g_battery);
 }
 
 static int
@@ -273,28 +244,10 @@ set_light_attention(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     pthread_mutex_lock(&g_lock);
-    if (state->flashMode == LIGHT_FLASH_HARDWARE) {
-        g_attention = state->flashOnMS;
-    } else if (state->flashMode == LIGHT_FLASH_NONE) {
-        g_attention = 0;
-    }
+    g_attention = *state;
     handle_speaker_battery_locked(dev);
     pthread_mutex_unlock(&g_lock);
     return 0;
-}
-
-static int
-set_light_buttons(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    int err = 0;
-    if(!dev) {
-        return -1;
-    }
-    pthread_mutex_lock(&g_lock);
-    err = write_int(BUTTON_FILE, state->color & 0xFF);
-    pthread_mutex_unlock(&g_lock);
-    return err;
 }
 
 /** Close the lights device */
@@ -327,14 +280,6 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_battery;
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name))
         set_light = set_light_notifications;
-    else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
-        if (!access(BUTTON_FILE, F_OK)) {
-          // enable light button when the file is present
-          set_light = set_light_buttons;
-        } else {
-          return -EINVAL;
-        }
-    }
     else if (0 == strcmp(LIGHT_ID_ATTENTION, name))
         set_light = set_light_attention;
     else
