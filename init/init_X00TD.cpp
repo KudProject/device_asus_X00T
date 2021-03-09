@@ -120,14 +120,13 @@ void vendor_check_variant()
     if (ReadFileToString(region_file, &region))
         region = Trim(region);
 
-    // Russian model has a slightly different product name
-    if (region == "RU")
+    if (region == "RU") {
+        // Russian model has a slightly different product name
         product_name = "RU_X00TD";
-    else
-        product_name = "WW_X00TD";
-
-    if (product_name == "RU_X00TD")
+        // Set hardware SKU to enable NFC on Russian model
         property_override("ro.boot.product.hardware.sku", "RU_X00TD");
+    } else
+        product_name = "WW_X00TD";
 
     // 6 GB variant
     if (sys.totalram > 4096ull * 1024 * 1024) {
@@ -160,9 +159,5 @@ void vendor_check_variant()
 void vendor_load_properties()
 {
     vendor_check_variant();
-    property_override("persist.vendor.audio.fluence.voicerec", "true");
-    property_override("persist.vendor.audio.fluence.speaker", "false");
-    property_override("ro.vendor.audio.sdk.fluencetype", "fluence");
-    property_override("vendor.voice.path.for.pcm.voip", "false");
     dalvik_properties();
 }
