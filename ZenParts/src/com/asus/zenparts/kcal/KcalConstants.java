@@ -16,7 +16,7 @@
 
 package com.asus.zenparts.kcal;
 
-public interface Utils {
+public interface KcalConstants {
     String PREF_ENABLED = "kcal_enabled";
     String PREF_SETONBOOT = "set_on_boot";
     String PREF_MINIMUM = "color_minimum";

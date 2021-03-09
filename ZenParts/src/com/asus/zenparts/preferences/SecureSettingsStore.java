@@ -18,11 +18,11 @@
 package com.asus.zenparts.preferences;
 
 import android.content.ContentResolver;
-import android.preference.PreferenceDataStore;
 import android.provider.Settings;
 
-public class SecureSettingsStore extends androidx.preference.PreferenceDataStore
-        implements PreferenceDataStore {
+import androidx.preference.PreferenceDataStore;
+
+public class SecureSettingsStore extends PreferenceDataStore {
 
     private final ContentResolver mContentResolver;
 

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2016 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -19,23 +18,24 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/actionBarSize"
     android:background="@drawable/switchbar_background"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
     android:clickable="true"
-    android:gravity="center">
+    android:gravity="center"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
-    <TextView android:id="@+id/switch_text"
-        android:layout_height="wrap_content"
+    <TextView
+        android:id="@+id/switch_text"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:paddingStart="48dp"
-        android:maxLines="2"
+        android:layout_weight="1"
         android:ellipsize="end"
-        android:textAppearance="@android:style/TextAppearance.Material.Title"
-        android:textColor="?android:attr/textColorPrimary"
+        android:maxLines="2"
+        android:paddingStart="48dp"
+        android:text="@string/switch_bar_on"
         android:textAlignment="viewStart"
-        android:text="@string/switch_bar_on" />
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:textColor="?android:attr/textColorPrimary" />
 
     <Switch
         android:id="@android:id/switch_widget"

@@ -26,11 +26,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 
 import com.asus.zenparts.R;
-
-import com.asus.zenparts.utils.AppHelper;
 
 import java.util.ArrayList;
 
@@ -40,14 +37,10 @@ public class ShortcutPickerHelper {
     public static final int REQUEST_PICK_APPLICATION = 101;
     public static final int REQUEST_CREATE_SHORTCUT = 102;
 
-    private Activity mParent;
-    private OnPickListener mListener;
-    private PackageManager mPackageManager;
+    private final Activity mParent;
+    private final OnPickListener mListener;
+    private final PackageManager mPackageManager;
     private int lastFragmentId;
-
-    public interface OnPickListener {
-        void shortcutPicked(String uri, String friendlyName, Bitmap bmp, boolean isApplication);
-    }
 
     public ShortcutPickerHelper(Activity parent, OnPickListener listener) {
         mParent = parent;
@@ -118,7 +111,7 @@ public class ShortcutPickerHelper {
     }
 
     private void processShortcut(Intent intent,
-        int requestCodeApplication, int requestCodeShortcut) {
+                                 int requestCodeApplication, int requestCodeShortcut) {
         // Handle case where user selected "Applications"
         String applicationName = mParent.getResources().getString(R.string.group_applications);
         String shortcutName = intent.getStringExtra(Intent.EXTRA_SHORTCUT_NAME);
@@ -137,7 +130,7 @@ public class ShortcutPickerHelper {
 
     private void completeSetCustomApp(Intent data) {
         mListener.shortcutPicked(data.toUri(0),
-            AppHelper.getFriendlyActivityName(mParent, mPackageManager, data, false), null, true);
+                AppHelper.getFriendlyActivityName(mParent, mPackageManager, data, false), null, true);
     }
 
     private void completeSetCustomShortcut(Intent data) {
@@ -152,13 +145,13 @@ public class ShortcutPickerHelper {
         // Check if icon is present
         Bitmap bmp = null;
         Parcelable extra = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON);
-        if (extra != null && extra instanceof Bitmap) {
+        if (extra instanceof Bitmap) {
             bmp = (Bitmap) extra;
         }
         // No icon till now check if icon resource is present
         if (bmp == null) {
             extra = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE);
-            if (extra != null && extra instanceof Intent.ShortcutIconResource) {
+            if (extra instanceof ShortcutIconResource) {
                 try {
                     Intent.ShortcutIconResource iconResource = (ShortcutIconResource) extra;
                     Resources resources =
@@ -172,6 +165,10 @@ public class ShortcutPickerHelper {
         }
         mListener.shortcutPicked(appUri,
                 AppHelper.getFriendlyShortcutName(mParent, mPackageManager, intent), bmp, false);
+    }
+
+    public interface OnPickListener {
+        void shortcutPicked(String uri, String friendlyName, Bitmap bmp, boolean isApplication);
     }
 
 }

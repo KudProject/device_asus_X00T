@@ -19,30 +19,30 @@
         android:key="audio"
         android:title="@string/audio_title">
         <com.asus.zenparts.preferences.CustomSeekBarPreference
-            android:defaultValue="2"
+            android:defaultValue="0"
+            android:icon="@drawable/ic_headphone"
             android:key="headphone_gain"
             android:max="20"
-            app:min="-40"
-            android:icon="@drawable/ic_headphone"
-            android:title="@string/headphone_gain" />
+            android:title="@string/headphone_gain"
+            app:min="-40" />
         <com.asus.zenparts.preferences.CustomSeekBarPreference
             android:defaultValue="0"
+            android:icon="@drawable/ic_mic"
             android:key="microphone_gain"
             android:max="20"
-            app:min="-10"
-            android:icon="@drawable/ic_mic"
-            android:title="@string/microphone_gain" />
+            android:title="@string/microphone_gain"
+            app:min="-10" />
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="display"
         android:title="@string/display_title">
         <Preference
+            android:icon="@drawable/ic_kcal"
             android:key="device_kcal"
             android:persistent="false"
-            android:icon="@drawable/ic_kcal"
-            android:title="@string/device_kcal_title"
-            android:summary="@string/kcal_summary">
+            android:summary="@string/kcal_summary"
+            android:title="@string/device_kcal_title">
             <intent
                 android:action="android.intent.action.MAIN"
                 android:targetClass="com.asus.zenparts.kcal.KCalSettingsActivity"
@@ -50,32 +50,32 @@
         </Preference>
 
         <SwitchPreference
-            android:key="fps_info"
             android:icon="@drawable/ic_fps_info"
-            android:title="@string/fps_info_title"
+            android:key="fps_info"
+            android:persistent="true"
             android:summary="@string/fps_info_summary"
-            android:persistent="true" />
+            android:title="@string/fps_info_title" />
 
         <com.asus.zenparts.preferences.SecureSettingSwitchPreference
             android:defaultValue="false"
-            android:key="backlight_dimmer"
             android:icon="@drawable/ic_backlight"
-            android:title="@string/backlight_dimmer"
-            android:summary="@string/backlight_summary" />
+            android:key="backlight_dimmer"
+            android:summary="@string/backlight_summary"
+            android:title="@string/backlight_dimmer" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/category_gesture">
+    <PreferenceCategory android:title="@string/category_gesture">
         <Preference
-                 android:key="gestures"
-                 android:title="@string/zenmotions"
-                 android:summary="@string/zenmotions_summary"
-                 android:icon="@drawable/ic_gestures"
-                 android:persistent="false" >
-                 <intent android:action="android.intent.action.MAIN"
-                         android:targetPackage="com.asus.zenparts"
-                         android:targetClass="com.asus.zenparts.settings.ScreenOffGestureSettings" />
+            android:icon="@drawable/ic_gestures"
+            android:key="gestures"
+            android:persistent="false"
+            android:summary="@string/zenmotions_summary"
+            android:title="@string/zenmotions">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.asus.zenparts.settings.ScreenOffGestureSettings"
+                android:targetPackage="com.asus.zenparts" />
         </Preference>
     </PreferenceCategory>
 
@@ -84,8 +84,8 @@
         android:title="@string/vibration_title">
         <com.asus.zenparts.preferences.VibratorStrengthPreference
             android:defaultValue="50"
-            android:key="vibration_strength"
             android:icon="@drawable/ic_vibrate"
+            android:key="vibration_strength"
             android:title="@string/vibration_strength_title" />
     </PreferenceCategory>
 
@@ -94,11 +94,11 @@
         android:title="@string/torch_title">
         <com.asus.zenparts.preferences.CustomSeekBarPreference
             android:defaultValue="100"
+            android:icon="@drawable/ic_torch"
             android:key="torch_brightness"
             android:max="255"
-            app:min="1"
-            android:icon="@drawable/ic_torch"
-            android:title="@string/torch_brightness_title" />
+            android:title="@string/torch_brightness_title"
+            app:min="1" />
     </PreferenceCategory>
 
 </PreferenceScreen>

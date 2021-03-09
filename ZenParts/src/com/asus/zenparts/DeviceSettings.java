@@ -16,78 +16,66 @@
 
 package com.asus.zenparts;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
+
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
 
 import com.asus.zenparts.kcal.KCalSettingsActivity;
 import com.asus.zenparts.preferences.CustomSeekBarPreference;
-import com.asus.zenparts.preferences.SecureSettingListPreference;
 import com.asus.zenparts.preferences.SecureSettingSwitchPreference;
 import com.asus.zenparts.preferences.VibratorStrengthPreference;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String PREF_BACKLIGHT_DIMMER = "backlight_dimmer";
+    public static final String BACKLIGHT_DIMMER_PATH = "/sys/module/mdss_fb/parameters/backlight_dimmer";
+    public static final String PREF_KEY_FPS_INFO = "fps_info";
     final static String PREF_TORCH_BRIGHTNESS = "torch_brightness";
+    final static String PREF_HEADPHONE_GAIN = "headphone_gain";
+    final static String PREF_MICROPHONE_GAIN = "microphone_gain";
     private final static String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom," +
             "spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_0/max_brightness";
     private final static String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom," +
             "spmi/spmi-0/spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_1/max_brightness";
-
-    public static final String KEY_VIBSTRENGTH = "vib_strength";
-    private static final String CATEGORY_DISPLAY = "display";
     private static final String PREF_DEVICE_KCAL = "device_kcal";
-
-    final static String PREF_HEADPHONE_GAIN = "headphone_gain";
     private static final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
-    final static String PREF_MICROPHONE_GAIN = "microphone_gain";
     private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
-    public static final String PREF_BACKLIGHT_DIMMER = "backlight_dimmer";
-    public static final String BACKLIGHT_DIMMER_PATH = "/sys/module/mdss_fb/parameters/backlight_dimmer";
-    public static final String PREF_KEY_FPS_INFO = "fps_info";    
-
+    private static Context mContext;
     private CustomSeekBarPreference mTorchBrightness;
     private VibratorStrengthPreference mVibratorStrength;
     private CustomSeekBarPreference mHeadphoneGain;
     private CustomSeekBarPreference mMicrophoneGain;
     private Preference mKcal;
-
     private SecureSettingSwitchPreference mBacklightDimmer;
-    private static Context mContext;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.preferences_asus_parts, rootKey);
         mContext = this.getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);        
-
-        String device = FileUtils.getStringProp("ro.build.product", "unknown");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         mTorchBrightness = (CustomSeekBarPreference) findPreference(PREF_TORCH_BRIGHTNESS);
         mTorchBrightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH) &&
                 FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
         mTorchBrightness.setOnPreferenceChangeListener(this);
 
-        PreferenceCategory displayCategory = (PreferenceCategory) findPreference(CATEGORY_DISPLAY);
-
         mHeadphoneGain = (CustomSeekBarPreference) findPreference(PREF_HEADPHONE_GAIN);
         mHeadphoneGain.setOnPreferenceChangeListener(this);
 
         mMicrophoneGain = (CustomSeekBarPreference) findPreference(PREF_MICROPHONE_GAIN);
         mMicrophoneGain.setOnPreferenceChangeListener(this);
-        
+
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
-        fpsInfo.setOnPreferenceChangeListener(this);        
+        fpsInfo.setOnPreferenceChangeListener(this);
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength != null) {
@@ -133,11 +121,11 @@ public class DeviceSettings extends PreferenceFragment implements
                 break;
             case PREF_KEY_FPS_INFO:
                 boolean enabled = (Boolean) value;
-                Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
+                Intent fpsInfo = new Intent(this.getContext(), FPSInfoService.class);
                 if (enabled) {
-                    this.getContext().startService(fpsinfo);
+                    this.getContext().startService(fpsInfo);
                 } else {
-                    this.getContext().stopService(fpsinfo);
+                    this.getContext().stopService(fpsInfo);
                 }
                 break;
 
@@ -145,15 +133,5 @@ public class DeviceSettings extends PreferenceFragment implements
                 break;
         }
         return true;
-    }
-
-    private boolean isAppNotInstalled(String uri) {
-        PackageManager packageManager = getContext().getPackageManager();
-        try {
-            packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
-            return true;
-        }
     }
 }

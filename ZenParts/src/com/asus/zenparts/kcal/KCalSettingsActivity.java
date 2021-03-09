@@ -25,7 +25,7 @@ import android.view.MenuItem;
 
 import com.asus.zenparts.R;
 
-public class KCalSettingsActivity extends Activity implements Utils {
+public class KCalSettingsActivity extends Activity implements KcalConstants {
 
     private KCalSettings mKCalSettingsFragment;
 

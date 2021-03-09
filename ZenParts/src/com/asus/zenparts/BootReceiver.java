@@ -20,13 +20,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import androidx.preference.PreferenceManager;
 import android.provider.Settings;
+
+import androidx.preference.PreferenceManager;
+
+import com.asus.zenparts.kcal.KcalConstants;
 import com.asus.zenparts.preferences.VibratorStrengthPreference;
 
-import com.asus.zenparts.kcal.Utils;
-
-public class BootReceiver extends BroadcastReceiver implements Utils {
+public class BootReceiver extends BroadcastReceiver implements KcalConstants {
 
     private final String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/soc/800f000.qcom,spmi/spmi-0/" +
             "spmi0-03/800f000.qcom,spmi:qcom,pm660l@3:qcom,leds@d300/leds/led:torch_0/" +
@@ -38,7 +39,7 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
     private final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
 
     public void onReceive(Context context, Intent intent) {
-    
+
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         FileUtils.setValue(TORCH_1_BRIGHTNESS_PATH,
@@ -48,13 +49,13 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                 Settings.Secure.getInt(context.getContentResolver(),
                         DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
         int gain = Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_HEADPHONE_GAIN, 5);
+                DeviceSettings.PREF_HEADPHONE_GAIN, 0);
         FileUtils.setValue(HEADPHONE_GAIN_PATH, gain + " " + gain);
         FileUtils.setValue(MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_MICROPHONE_GAIN, 0));
         FileUtils.setValue(DeviceSettings.BACKLIGHT_DIMMER_PATH, Settings.Secure.getInt(context.getContentResolver(),
                 DeviceSettings.PREF_BACKLIGHT_DIMMER, 0));
-                
+
         boolean enabled = sharedPrefs.getBoolean(DeviceSettings.PREF_KEY_FPS_INFO, false);
         if (enabled) {
             context.startService(new Intent(context, FPSInfoService.class));
@@ -84,7 +85,7 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                     PREF_CONTRAST, CONTRAST_DEFAULT) + CONTRAST_OFFSET);
             FileUtils.setValue(KCAL_HUE, Settings.Secure.getInt(context.getContentResolver(),
                     PREF_HUE, HUE_DEFAULT));
-        VibratorStrengthPreference.restore(context);
+            VibratorStrengthPreference.restore(context);
         }
     }
 }

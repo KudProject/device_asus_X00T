@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 The Asus-SDM660 Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2018 The Asus-SDM660 Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -82,7 +81,7 @@
     <string name="gestures">Gestur</string>
     <string name="screen_off_gestures">Gestur layar mati</string>
     <string name="gesture_double_tap_title">Ketuk dua kali</string>
-    <string name="gesture_z_title">Gestur Z</string>	
+    <string name="gesture_z_title">Gestur Z</string>
     <string name="gesture_s_title">Gestur S</string>
     <string name="gesture_v_title">Gestur V</string>
     <string name="gesture_w_title">Gestur W</string>

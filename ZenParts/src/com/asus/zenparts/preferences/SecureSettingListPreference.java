@@ -17,9 +17,10 @@
 package com.asus.zenparts.preferences;
 
 import android.content.Context;
-import androidx.preference.ListPreference;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+
+import androidx.preference.ListPreference;
 
 public class SecureSettingListPreference extends ListPreference {
     private boolean mAutoSummary = false;

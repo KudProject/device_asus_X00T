@@ -4,9 +4,6 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.service.quicksettings.TileService;
 
-import com.asus.zenparts.DeviceSettings;
-import com.asus.zenparts.DeviceSettingsActivity;
-
 public class ZenpartsTile extends TileService {
 
     @Override
