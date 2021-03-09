@@ -44,9 +44,6 @@ on fs
     write /sys/kernel/boot_adsp/boot 1
     # move from device/qcom/sdm660_64/init.target.rc end
 
-    # Optimize the nvram_country sequence
-    start nvram_country
-
     # Enable Cam2Api
     setprop persist.sys.camera.camera2 true
 
@@ -105,19 +102,9 @@ on boot
 on property:sys.boot_completed=1
     start nvram_btwifi
 
-on property:ro.config.versatility=*
-    write /proc/countrycode ${ro.config.versatility}
-
 on property:sys.nvram.btmac=*
     start vendor-btmac-sh
     restart vendor.bluetooth-1-0-qti
-
-# Nvram country service
-service nvram_country system/vendor/bin/nvram_country
-    user system
-    group system
-    oneshot
-    disabled
 
 service nvram_btwifi /vendor/bin/nvram_btwifi
     user root
