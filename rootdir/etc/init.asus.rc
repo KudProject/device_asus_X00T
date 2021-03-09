@@ -99,18 +99,9 @@ on boot
     chown system system /sys/kernel/touchpanel/gesture_node
     chmod 0664 /sys/kernel/touchpanel/gesture_node
 
-on property:sys.boot_completed=1
-    start nvram_btwifi
-
 on property:sys.nvram.btmac=*
     start vendor-btmac-sh
     restart vendor.bluetooth-1-0-qti
-
-service nvram_btwifi /vendor/bin/nvram_btwifi
-    user root
-    group system
-    oneshot
-    disabled
 
 service vendor-btmac-sh  /vendor/bin/init.btmac.sh
     class core

@@ -209,6 +209,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
+# NVRAM
+PRODUCT_PACKAGES += \
+    nvram_btwifi.rc
+
 # OMX
 PRODUCT_PACKAGES += \
     libaacwrapper \

@@ -1,0 +1,8 @@
+service nvram_btwifi /system_ext/bin/nvram_btwifi
+    user root
+    group system
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start nvram_btwifi
