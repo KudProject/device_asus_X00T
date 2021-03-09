@@ -1396,8 +1396,8 @@ vendor/firmware/widevine.b06
 vendor/firmware/widevine.b07
 vendor/firmware/widevine.mdt
 
-# Wifi - from LA.UM.8.2.1.r1-05600-sdm660
-vendor/bin/cnss-daemon|a7b196d0c8204f6fbe445710e8d062d0c2d9b42f
+# Wifi - from LA.UM.9.12.r1-09300-SMxx50.0
+vendor/bin/cnss-daemon|a360c5995d9cef66a943705decb88530bd061a36
 
 # WFD
 bin/wfdservice
