@@ -102,12 +102,21 @@ on boot
     chown system system /sys/kernel/touchpanel/gesture_node
     chmod 0664 /sys/kernel/touchpanel/gesture_node
 
+on property:sys.boot_completed=1
+    start nvram_btwifi
+
 on property:ro.config.versatility=*
     write /proc/countrycode ${ro.config.versatility}
 
 # Nvram country service
 service nvram_country system/vendor/bin/nvram_country
     user system
+    group system
+    oneshot
+    disabled
+
+service nvram_btwifi /vendor/bin/nvram_btwifi
+    user root
     group system
     oneshot
     disabled

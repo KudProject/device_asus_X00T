@@ -1054,6 +1054,12 @@ vendor/lib/libpn553_fw.so
 # NVRAM
 vendor/bin/nvram_country
 
+# NVRAM - from sdm660_64-user 9 PKQ1 43 release-keys
+vendor/bin/nvram_btwifi|ba3d16f721dd4d71e0aa150a5a9cf710ae6af99f
+
+# NVRAM (dependency) - from LA.UM.9.6.2.r1-03300-89xx.0
+system_ext/lib64/libmmi.so:vendor/lib64/libmmi.so|8cc8cae8aa3177a4b6b5ba9a86c3a2aa1e0b5fcf
+
 # Media - from LA.UM.8.2.1.r1-05600-sdm660
 lib/libFileMux.so|5a7dc70233541e2e5455a0d802076d0ac593af62
 lib/libmmosal.so|423a0baf93ca306b08210de6469235d0fa745966
