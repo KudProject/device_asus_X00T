@@ -121,8 +121,15 @@ on boot
     chmod 0660 /sys/devices/platform/kcal_ctrl.0/kcal_val
 
 # Vibrator permissions
-    chown root system /sys/class/timed_output/vibrator/vtg_level
-    chmod 0660 /sys/class/timed_output/vibrator/vtg_level
+    chown system system /sys/class/leds/vibrator/vmax_override
+    write /sys/class/leds/vibrator/vmax_override 1
+    chown system system /sys/class/leds/vibrator/vmax_mv_strong
+    chown system system /sys/class/leds/vibrator/vmax_mv_call
+    chown system system /sys/class/leds/vibrator/vmax_mv_user
+    chmod 0660 /sys/class/leds/vibrator/vmax_override
+    chmod 0660 /sys/class/leds/vibrator/vmax_mv_strong
+    chmod 0660 /sys/class/leds/vibrator/vmax_mv_call
+    chown 0660 /sys/class/leds/vibrator/vmax_mv_user
 
 # Audio gain permissions
     chown system system /sys/kernel/sound_control/headphone_gain

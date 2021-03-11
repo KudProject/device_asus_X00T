@@ -79,14 +79,19 @@
         </Preference>
     </PreferenceCategory>
 
-    <PreferenceCategory
-        android:key="vibration"
-        android:title="@string/vibration_title">
-        <com.asus.zenparts.preferences.VibratorStrengthPreference
-            android:defaultValue="50"
+    <!-- Vibration control screen -->
+    <PreferenceCategory android:title="@string/category_vibration">
+        <Preference
             android:icon="@drawable/ic_vibrate"
-            android:key="vibration_strength"
-            android:title="@string/vibration_strength_title" />
+            android:key="vibration"
+            android:persistent="false"
+            android:summary="@string/vibration_summary"
+            android:title="@string/vibration_title">
+            <intent
+                android:action="android.intent.action.MAIN"
+                android:targetClass="com.asus.zenparts.preferences.vibration.VibrationActivity"
+                android:targetPackage="com.asus.zenparts" />
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory

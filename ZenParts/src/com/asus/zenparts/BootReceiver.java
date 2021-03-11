@@ -25,7 +25,8 @@ import android.provider.Settings;
 import androidx.preference.PreferenceManager;
 
 import com.asus.zenparts.kcal.KcalConstants;
-import com.asus.zenparts.preferences.VibratorStrengthPreference;
+import com.asus.zenparts.preferences.vibration.VibrationConstants;
+import com.asus.zenparts.preferences.vibration.VibrationUtils;
 
 public class BootReceiver extends BroadcastReceiver implements KcalConstants {
 
@@ -37,6 +38,8 @@ public class BootReceiver extends BroadcastReceiver implements KcalConstants {
             "max_brightness";
     private final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
     private final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
+
+    private VibrationUtils vibrationUtils;
 
     public void onReceive(Context context, Intent intent) {
 
@@ -85,7 +88,15 @@ public class BootReceiver extends BroadcastReceiver implements KcalConstants {
                     PREF_CONTRAST, CONTRAST_DEFAULT) + CONTRAST_OFFSET);
             FileUtils.setValue(KCAL_HUE, Settings.Secure.getInt(context.getContentResolver(),
                     PREF_HUE, HUE_DEFAULT));
-            VibratorStrengthPreference.restore(context);
+        }
+
+        vibrationUtils = new VibrationUtils(context);
+        restoreVibrationStrength();
+    }
+
+    private void restoreVibrationStrength() {
+        for (int i = 0; i <= VibrationConstants.vibrationPaths.length - 1; i++) {
+            vibrationUtils.restore(VibrationConstants.vibrationPaths[i], VibrationConstants.vibrationKeys[i]);
         }
     }
 }

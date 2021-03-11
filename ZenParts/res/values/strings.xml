@@ -23,7 +23,11 @@
     <string name="torch_title">Torch</string>
     <string name="torch_brightness_title">Brightness</string>
     <string name="vibration_title">Vibration</string>
-    <string name="vibration_strength_title">Vibration Strength</string>
+    <string name="vibration_summary">Set vibration strength for system, calls and notification</string>
+    <string name="vibration_strength_system_ui">Vibration Strength - System UI</string>
+    <string name="vibration_strength_call">Vibration Strength - Call</string>
+    <string name="vibration_strength_system_notification">Vibration Strength - Notification</string>
+    <string name="category_vibration">Vibration Strength</string>
 
     <string name="audio_title">Audio</string>
 
