@@ -18,10 +18,6 @@
 
     <string name="display_title">Layar</string>
 
-    <string name="backlight_dimmer">Backlight Dimmer</string>
-    <string name="backlight_summary">Redupkan layar ke nilai paling maksimum</string>
-    <string name="torch_title">Senter</string>
-    <string name="torch_brightness_title">Kecerahan</string>
     <string name="vibration_title">Getaran</string>
     <string name="vibration_strength_title">Kekuatan</string>
 
@@ -31,36 +27,6 @@
     <string name="edit_value">Atur nilai</string>
     <string name="default_value">Nilai bawaan</string>
     <string name="edit_hint">Nilai antara %1$d and %2$d</string>
-
-    <!-- Kcal Settings -->
-    <string name="device_kcal_title">Kalibrasi Warna Layar</string>
-    <string name="advanced_settings_kcal">Kalibrasi Warna Layar</string>
-    <string name="cat_colormanagement">Pengaturan Warna</string>
-    <string name="cat_calibration">Kalibrasi Warna</string>
-    <string name="kcal_summary">Kalibrasi warna layar dengan KCAL</string>
-    <string name="kcal_enabled">Nyala</string>
-    <string name="kcal_disabled">Mati</string>
-    <string name="set_on_boot">Aktifkan KCAL setelah boot</string>
-    <string name="color_red">Merah</string>
-    <string name="color_green">Hijau</string>
-    <string name="color_blue">Biru</string>
-    <string name="color_minimum">Minimum</string>
-    <string name="saturation">Saturasi</string>
-    <string name="value">Nilai</string>
-    <string name="contrast">Kontras</string>
-    <string name="hue">Rona</string>
-    <string name="grayscale">Skala Abu-Abu</string>
-
-    <!-- Presets -->
-    <string name="preset_default">Standar</string>
-    <string name="preset_version_1">Versi 1</string>
-    <string name="preset_version_2">Versi 2</string>
-    <string name="preset_version_3">Versi 3</string>
-    <string name="preset_triluminous">Triluminus</string>
-
-    <!-- Menu -->
-    <string name="kcal_presets" translatable="false">@string/presets_dialog_title</string>
-    <string name="kcal_reset">Atur Ulang</string>
 
     <!-- Zenmotions -->
     <string name="dlg_ok">OK</string>
@@ -80,7 +46,6 @@
     <string name="zenmotions_summary">Gestur layar mati yang aduhai</string>
     <string name="gestures">Gestur</string>
     <string name="screen_off_gestures">Gestur layar mati</string>
-    <string name="gesture_double_tap_title">Ketuk dua kali</string>
     <string name="gesture_z_title">Gestur Z</string>
     <string name="gesture_s_title">Gestur S</string>
     <string name="gesture_v_title">Gestur V</string>

@@ -37,32 +37,12 @@
     <PreferenceCategory
         android:key="display"
         android:title="@string/display_title">
-        <Preference
-            android:icon="@drawable/ic_kcal"
-            android:key="device_kcal"
-            android:persistent="false"
-            android:summary="@string/kcal_summary"
-            android:title="@string/device_kcal_title">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetClass="com.asus.zenparts.kcal.KCalSettingsActivity"
-                android:targetPackage="com.asus.zenparts.kcal" />
-        </Preference>
-
         <SwitchPreference
             android:icon="@drawable/ic_fps_info"
             android:key="fps_info"
             android:persistent="true"
             android:summary="@string/fps_info_summary"
             android:title="@string/fps_info_title" />
-
-        <com.asus.zenparts.preferences.SecureSettingSwitchPreference
-            android:defaultValue="false"
-            android:icon="@drawable/ic_backlight"
-            android:key="backlight_dimmer"
-            android:summary="@string/backlight_summary"
-            android:title="@string/backlight_dimmer" />
-
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/category_gesture">
@@ -92,18 +72,6 @@
                 android:targetClass="com.asus.zenparts.preferences.vibration.VibrationActivity"
                 android:targetPackage="com.asus.zenparts" />
         </Preference>
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:key="torch"
-        android:title="@string/torch_title">
-        <com.asus.zenparts.preferences.CustomSeekBarPreference
-            android:defaultValue="100"
-            android:icon="@drawable/ic_torch"
-            android:key="torch_brightness"
-            android:max="255"
-            android:title="@string/torch_brightness_title"
-            app:min="1" />
     </PreferenceCategory>
 
 </PreferenceScreen>

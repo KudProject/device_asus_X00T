@@ -61,7 +61,6 @@ public class ScreenOffGesture extends PreferenceFragment implements
     public static final String PREF_GESTURE_DOWN = "gesture_down";
     public static final String PREF_GESTURE_LEFT = "gesture_left";
     public static final String PREF_GESTURE_RIGHT = "gesture_right";
-    public static final String PREF_GESTURE_DOUBLE_TAP = "gesture_double_tap";
 
     private static final int DLG_SHOW_ACTION_DIALOG = 0;
     private static final int DLG_RESET_TO_DEFAULT = 1;
@@ -132,7 +131,6 @@ public class ScreenOffGesture extends PreferenceFragment implements
         mGestureSwipeDown = prefs.findPreference(PREF_GESTURE_DOWN);
         mGestureSwipeLeft = prefs.findPreference(PREF_GESTURE_LEFT);
         mGestureSwipeRight = prefs.findPreference(PREF_GESTURE_RIGHT);
-        mGestureDoubleTap = prefs.findPreference(PREF_GESTURE_DOUBLE_TAP);
 
         setupOrUpdatePreference(mGestureC, mScreenOffGestureSharedPreferences
                 .getString(PREF_GESTURE_C, ActionConstants.ACTION_NULL));
@@ -154,8 +152,6 @@ public class ScreenOffGesture extends PreferenceFragment implements
                 .getString(PREF_GESTURE_LEFT, ActionConstants.ACTION_NULL));
         setupOrUpdatePreference(mGestureSwipeRight, mScreenOffGestureSharedPreferences
                 .getString(PREF_GESTURE_RIGHT, ActionConstants.ACTION_NULL));
-        setupOrUpdatePreference(mGestureDoubleTap, mScreenOffGestureSharedPreferences
-                .getString(PREF_GESTURE_DOUBLE_TAP, ActionConstants.ACTION_WAKE_DEVICE));
 
         boolean enableGestures =
                 mScreenOffGestureSharedPreferences.getBoolean(PREF_GESTURE_ENABLE, true);
@@ -196,10 +192,7 @@ public class ScreenOffGesture extends PreferenceFragment implements
     public boolean onPreferenceClick(Preference preference) {
         String settingsKey = null;
         int dialogTitle = 0;
-        if (preference == mGestureDoubleTap) {
-            settingsKey = PREF_GESTURE_DOUBLE_TAP;
-            dialogTitle = R.string.gesture_double_tap_title;
-        } else if (preference == mGestureC) {
+        if (preference == mGestureC) {
             settingsKey = PREF_GESTURE_C;
             dialogTitle = R.string.gesture_c_title;
         } else if (preference == mGestureDoubleSwipe) {
@@ -276,8 +269,6 @@ public class ScreenOffGesture extends PreferenceFragment implements
                 ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_RIGHT,
                 ActionConstants.ACTION_NULL).commit();
-        editor.putString(PREF_GESTURE_DOUBLE_TAP,
-                ActionConstants.ACTION_WAKE_DEVICE).commit();
         editor.commit();
         GestureNodeControl.enableGestures(true);
         reloadSettings();

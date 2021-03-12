@@ -21,9 +21,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.asus.zenparts.kcal.KcalConstants;
-
-public class BootReceiver extends BroadcastReceiver implements KcalConstants {
+public class BootReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent) {
         if (!intent.getAction().equals(Intent.ACTION_BOOT_COMPLETED))

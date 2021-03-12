@@ -80,16 +80,6 @@
                 android:resource="@string/advanced_settings_summary" />
         </activity-alias>
 
-        <activity
-            android:name=".kcal.KCalSettingsActivity"
-            android:exported="false"
-            android:label="@string/advanced_settings_kcal">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <!-- Vibration strength -->
         <activity
             android:name="com.asus.zenparts.preferences.vibration.VibrationActivity"
