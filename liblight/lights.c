@@ -167,6 +167,10 @@ set_speaker_light_locked(struct light_device_t* dev,
         return -1;
     }
 
+    // Disable LED's
+    write_int(RED_LED_FILE, 0);
+    write_int(GREEN_LED_FILE, 0);
+
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
             onMS = state->flashOnMS;
