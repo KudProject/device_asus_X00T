@@ -65,8 +65,7 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.broadcastradio@1.0-service
+    android.hardware.broadcastradio@1.0-impl
 
 # Health
 PRODUCT_PACKAGES += \
@@ -78,8 +77,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.base@1.0_system \
-    android.hidl.manager@1.0 \
-    android.hidl.manager@1.0-java
+    android.hidl.manager@1.0
 
 # Lights
 PRODUCT_PACKAGES += \

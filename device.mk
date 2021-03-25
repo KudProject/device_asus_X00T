@@ -64,9 +64,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/usb_audio_policy_configuration.xml
 
 # Bluetooth
-PRODUCT_PACKAGES += \
-    libbthost_if
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
@@ -88,24 +85,19 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # Display
 PRODUCT_PACKAGES += \
-    copybit.sdm660 \
     gralloc.sdm660 \
     hwcomposer.sdm660 \
     memtrack.sdm660 \
     libdisplayconfig \
     libqdMetaData.system \
     libtinyxml \
-    libvulkan \
-    libgenlock
+    libvulkan
 
 # Exclude TOF sensor from InputManager
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/excluded-input-devices.xml:system/etc/excluded-input-devices.xml
 
 # Fingerprint feature
-PRODUCT_PACKAGES += \
-    fingerprintd
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
 
@@ -221,7 +213,6 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxG711Enc \
     libOmxQcelp13Enc \
-    libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
@@ -315,7 +306,6 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
-    rild \
     libavservices_minijail.vendor \
     librmnetctl \
     libprotobuf-cpp-full
@@ -358,9 +348,6 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 
 # Thermal
-PRODUCT_PACKAGES += \
-    thermal.sdm660
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf    
 
