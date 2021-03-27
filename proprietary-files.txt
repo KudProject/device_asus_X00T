@@ -1581,10 +1581,11 @@ vendor/lib64/libqcbor.so|c7db76dc44c7f492791aa27a18a0a5035f21b062
 vendor/bin/tftp_server|f096a58e024ef6d1ad78da49388c183747d384da
 vendor/etc/init/vendor.qti.tftp.rc|b27f188cbffba470a4510d50e46ff7c8446c22cb
 
-# Thermal - from LA.UM.8.2.1.r1-05600-sdm660
-vendor/bin/thermal-engine|e012f4c1bd057281707bd160a6ee2479b7db8667
--vendor/lib/libthermalclient.so|34b6ee056ae8a6df578fc243f8acd3567a49d97b
--vendor/lib64/libthermalclient.so|20f1fd238fc81bf1c6828ec416121c0ef66e0df1
+# Thermal - from LA.UM.9.12.r1-10800-SMxx50.0
+vendor/bin/thermal-engine|dcac44ec87aae10821d3aabd80684998a10bdfab
+vendor/etc/init/init_thermal-engine.rc|a0310f09da9f09c67e110607b73aec9f9f981c4c
+-vendor/lib/libthermalclient.so|96dd47b988620b785d5450fe9fcbda90d6959270
+-vendor/lib64/libthermalclient.so|ee1654db87e53a986ca68e6b3e6af2264b86b5d7
 
 # Time services - from LA.UM.9.12.r1-10800-SMxx50.0
 -vendor/app/TimeService/TimeService.apk;PRESIGNED|1a5f39aa2969feee50ff81ec870b5e2669ae515e
