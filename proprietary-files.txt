@@ -1097,14 +1097,14 @@ vendor/lib64/libkeymasterutils.so
 # Latency - from LA.UM.9.12.r1-10800-SMxx50.0
 vendor/lib64/vendor.qti.hardware.data.latency@1.0.so|c7267852e7539ec85cce18ee04d7cffa97e7027f
 
-# Listen - from LA.UM.8.2.1.r1-05600-sdm660
-vendor/lib/hw/sound_trigger.primary.sdm660.so|f623b7055ead3bfa2139c30a0f2b2cf721411e0b
-vendor/lib/libadpcmdec.so|8c72aa1812bfa749f266020366894c8a3873d99c
-vendor/lib/libgcs-calwrapper.so|cbf3dbe43161b68adfaf48a9da4e7fedd7b02f5a
-vendor/lib/libgcs-ipc.so|b125f360381aa8c7ebdff04585520770ee0c8902
-vendor/lib/libgcs-osal.so|5f0c6798dbeb9c806706b0cf217440662452364c
-vendor/lib/libgcs.so|ccb6ac9c27021cf4f2ec09994742c38b700c2583
-vendor/lib/libsmwrapper.so|7f7bd7045ced84928ec46b457ec5f21d5228ea3a
+# Listen - from LA.UM.9.6.2.r1-03600-89xx.0
+vendor/lib/hw/sound_trigger.primary.msm8937.so:vendor/lib/hw/sound_trigger.primary.sdm660.so|a63363296a361e1230592bcf8f8268101cea434b
+vendor/lib/libadpcmdec.so|7a38d6b28b27cf663681ad077614a03164418f91
+vendor/lib/libgcs-calwrapper.so|4d876cef46407c46ab80b74872ad615bcb2e45df
+vendor/lib/libgcs-ipc.so|b093c43e7882db3e8c772e76422e3f07168b490b
+vendor/lib/libgcs-osal.so|2fc9a8ac335c37b8cefc8dce0abca1a478f96f65
+vendor/lib/libgcs.so|3b52be74d16721f0f15cf19fd9e1134d479a260c
+vendor/lib/libsmwrapper.so|f0ee761c02c888e77d947bb87d162d9379bc1530
 
 # NFC
 vendor/lib/libpn553_fw.so
