@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="device">
+<manifest version="1.0" type="device" target-level="4">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
@@ -47,7 +47,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.soundtrigger</name>
         <transport>hwbinder</transport>
-        <version>2.1</version>
+        <version>2.3</version>
         <interface>
             <name>ISoundTriggerHw</name>
             <instance>default</instance>
@@ -184,15 +184,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         </interface>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.boot</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IBootControl</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
         <fqname>@1.4::IRadio/slot1</fqname>
@@ -204,21 +195,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
    <hal format="hidl">
        <name>android.hardware.radio.config</name>
        <transport>hwbinder</transport>
-       <version>1.1</version>
+       <version>1.2</version>
        <interface>
            <name>IRadioConfig</name>
            <instance>default</instance>
-       </interface>
-    </hal>
-    <!--UICC secure element -->
-   <hal format="hidl">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.2</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>SIM1</instance>
-           <instance>SIM2</instance>
        </interface>
     </hal>
     <!-- RIL UIM REMOTE CLIENT -->
@@ -309,7 +289,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
         <transport>hwbinder</transport>
-        <version>2.2</version>
+        <version>2.0</version>
         <interface>
             <name>IPerf</name>
             <instance>default</instance>
@@ -347,7 +327,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.keymaster</name>
         <transport>hwbinder</transport>
-        <version>4.0</version>
+        <version>3.0</version>
         <interface>
             <name>IKeymasterDevice</name>
             <instance>default</instance>
@@ -402,39 +382,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- nfc -->
-    <hal format="hidl">
-        <name>android.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <version>1.2</version>
-        <interface>
-            <name>INfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.nxp.hardware.nfc</name>
-        <transport>hwbinder</transport>
-        <version>2.0</version>
-        <interface>
-            <name>INqNfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.nxp.nxpnfclegacy</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>INxpNfcLegacy</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- IMS UCE Service -->
     <hal format="hidl">
         <name>com.qualcomm.qti.uceservice</name>
         <transport>hwbinder</transport>
-        <version>2.3</version>
+        <version>2.2</version>
         <interface>
             <name>IUceService</name>
             <instance>com.qualcomm.qti.uceservice</instance>
@@ -625,16 +577,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- Factory HAL service -->
-    <hal format="hidl">
-        <name>vendor.qti.hardware.factory</name>
-        <transport>hwbinder</transport>
-        <version>1.1</version>
-        <interface>
-            <name>IFactory</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <!-- WifiStats HAL service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.wifi.wifilearner</name>
@@ -665,14 +607,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    <!-- improveTouch Service-->
+    <!-- CapabilityConfigStore HAL Service  -->
     <hal format="hidl">
-        <name>vendor.qti.hardware.improvetouch.touchcompanion</name>
+        <name>vendor.qti.hardware.capabilityconfigstore</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
-            <name>ITouchCompanion</name>
-            <instance>TouchCompanionService</instance>
+            <name>ICapabilityConfigStore</name>
+            <instance>default</instance>
         </interface>
     </hal>
     <!-- QCC HAL Service -->
@@ -685,14 +627,102 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>qccvndhal</instance>
         </interface>
     </hal>
-    <!-- CapabilityConfigStore HAL Service  -->
+    <!-- target-level="3" manifest entries here -->
     <hal format="hidl">
-        <name>vendor.qti.hardware.capabilityconfigstore</name>
+        <name>android.hardware.light</name>
         <transport>hwbinder</transport>
-        <version>1.0</version>
+        <version>2.0</version>
         <interface>
-            <name>ICapabilityConfigStore</name>
+            <name>ILight</name>
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl">
+        <name>android.hardware.configstore</name>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <name>ISurfaceFlingerConfigs</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <!-- Misc - Specific to Hals/versions used in this tree 
+         i.e: Different from CAF -->
+    <hal format="hidl">
+        <name>android.hardware.drm</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>ICryptoFactory</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IDrmFactory</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::ICryptoFactory/default</fqname>
+        <fqname>@1.0::IDrmFactory/default</fqname>
+        <fqname>@1.3::ICryptoFactory/clearkey</fqname>
+        <fqname>@1.2::ICryptoFactory/widevine</fqname>
+        <fqname>@1.3::IDrmFactory/clearkey</fqname>
+        <fqname>@1.2::IDrmFactory/widevine</fqname>
+    </hal>
+    <!-- gnss -->
+    <hal format="hidl">
+        <name>android.hardware.gnss</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IGnss</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@1.0::IGnss/default</fqname>
+        <fqname>@1.0::IGnss/gnss_vendor</fqname>
+        <fqname>@2.0::IGnss/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.gnss</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>ILocHidlGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+        <fqname>@1.2::ILocHidlGnss/gnss_vendor</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.gnss</name>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <name>ILocHidlGnss</name>
+            <instance>gnss_vendor</instance>
+        </interface>
+        <fqname>@2.0::ILocHidlGnss/gnss_vendor</fqname>
+    </hal>
+    <!-- biometrics --> 
+    <hal format="hidl">
+        <name>android.hardware.biometrics.fingerprint</name>
+        <transport>hwbinder</transport>
+        <version>2.1</version>
+        <interface>
+            <name>IBiometricsFingerprint</name>
+            <instance>default</instance>
+        </interface>
+        <fqname>@2.1::IBiometricsFingerprint/default</fqname>
+    </hal>
+
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.iwlan</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IIWlan</name>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    <sepolicy>
+        <version>30.0</version>
+    </sepolicy>
 </manifest>
