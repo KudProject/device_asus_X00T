@@ -88,6 +88,10 @@
     -->
      <bool name="config_enableNetworkLocationOverlay">false</bool>
 
+    <!-- Enable overlays for location components. -->
+    <string name="config_comboNetworkLocationProvider">com.qualcomm.location</string>
+    <string name="config_networkLocationProviderPackageName">com.qualcomm.location</string>
+
     <!-- Whether WiFi display is supported by this device.
          There are many prerequisites for this feature to work correctly.
          Here are a few of them:
