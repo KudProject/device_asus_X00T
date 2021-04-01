@@ -73,6 +73,10 @@ function blob_fixup() {
         "${PATCHELF}" --replace-needed "libprotobuf-cpp-full.so" "libprotobuf-cpp-full-v29.so" "${2}"
         ;;
 
+    lib/libwfdnative.so | lib64/libwfdnative.so)
+        "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
+        ;;
+
     esac
 }
 

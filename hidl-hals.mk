@@ -73,12 +73,6 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     android.hardware.health@2.1-impl.recovery
 
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.base@1.0_system \
-    android.hidl.manager@1.0
-
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
