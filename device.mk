@@ -363,8 +363,7 @@ PRODUCT_PACKAGES += \
 # Update this list with blob function
 # libstdc++: camera.sdm660
 PRODUCT_PACKAGES += \
-    libstdc++.vendor \
-    vndk-ext
+    libstdc++.vendor
 
 # WFD
 PRODUCT_PACKAGES += \
