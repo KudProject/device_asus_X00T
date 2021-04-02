@@ -34,8 +34,8 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_KEY_FPS_INFO = "fps_info";
     final static String PREF_HEADPHONE_GAIN = "headphone_gain";
     final static String PREF_MICROPHONE_GAIN = "microphone_gain";
-    private static final String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
-    private static final String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
+    final static String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
+    final static String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
     private static Context mContext;
     private CustomSeekBarPreference mHeadphoneGain;
     private CustomSeekBarPreference mMicrophoneGain;
@@ -47,9 +47,11 @@ public class DeviceSettings extends PreferenceFragment implements
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         mHeadphoneGain = (CustomSeekBarPreference) findPreference(PREF_HEADPHONE_GAIN);
+        mHeadphoneGain.setValue(prefs.getInt(PREF_HEADPHONE_GAIN, 0));
         mHeadphoneGain.setOnPreferenceChangeListener(this);
 
         mMicrophoneGain = (CustomSeekBarPreference) findPreference(PREF_MICROPHONE_GAIN);
+        mMicrophoneGain.setValue(prefs.getInt(PREF_MICROPHONE_GAIN, 0));
         mMicrophoneGain.setOnPreferenceChangeListener(this);
 
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);

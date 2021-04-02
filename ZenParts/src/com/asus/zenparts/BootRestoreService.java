@@ -55,17 +55,12 @@ public class BootRestoreService extends Service {
     }
 
     private void restoreMiscPrefs() {
-        // Paths
-        String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
-        String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
+	// Restore sound control
+        int gain = sharedPrefs.getInt(DeviceSettings.PREF_HEADPHONE_GAIN, 0);
+        FileUtils.setValue(DeviceSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
+        FileUtils.setValue(DeviceSettings.MICROPHONE_GAIN_PATH, sharedPrefs.getInt(DeviceSettings.PREF_MICROPHONE_GAIN, 0));
 
-        // Restore preferences
-        int gain = Settings.Secure.getInt(getContentResolver(),
-                DeviceSettings.PREF_HEADPHONE_GAIN, 0);
-        FileUtils.setValue(HEADPHONE_GAIN_PATH, gain + " " + gain);
-        FileUtils.setValue(MICROPHONE_GAIN_PATH, Settings.Secure.getInt(getContentResolver(),
-                DeviceSettings.PREF_MICROPHONE_GAIN, 0));
-
+	// Restore fps info
         boolean enabled = sharedPrefs.getBoolean(DeviceSettings.PREF_KEY_FPS_INFO, false);
         if (enabled)
             startService(new Intent(this, FPSInfoService.class));
