@@ -257,25 +257,25 @@ public class ScreenOffGesture extends PreferenceFragment implements
         mScreenOffGestureSharedPreferences.edit()
                 .putBoolean(PREF_GESTURE_ENABLE, true).apply();
         editor.putString(PREF_GESTURE_C,
-                ActionConstants.ACTION_CAMERA).apply();
+                ActionConstants.ACTION_NULL).apply();
         editor.putString(PREF_GESTURE_E,
-                ActionConstants.ACTION_MEDIA_PLAY_PAUSE).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_W,
-                ActionConstants.ACTION_TORCH).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_V,
-                ActionConstants.ACTION_VIB_SILENT).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_S,
-                ActionConstants.ACTION_MEDIA_PREVIOUS).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_Z,
-                ActionConstants.ACTION_MEDIA_NEXT).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_UP,
                 ActionConstants.ACTION_WAKE_DEVICE).commit();
         editor.putString(PREF_GESTURE_DOWN,
-                ActionConstants.ACTION_VIB_SILENT).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_LEFT,
-                ActionConstants.ACTION_MEDIA_PREVIOUS).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_RIGHT,
-                ActionConstants.ACTION_MEDIA_NEXT).commit();
+                ActionConstants.ACTION_NULL).commit();
         editor.putString(PREF_GESTURE_DOUBLE_TAP,
                 ActionConstants.ACTION_WAKE_DEVICE).commit();
         editor.commit();

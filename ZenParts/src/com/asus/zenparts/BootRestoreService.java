@@ -1,5 +1,6 @@
 package com.asus.zenparts;
 
+import android.content.Context;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +19,7 @@ public class BootRestoreService extends Service implements KcalConstants {
 
     private static final String TAG = "ZenParts: BootRestoreService";
     // vars
-    private SharedPreferences sharedPrefs;
+    private SharedPreferences sharedPrefs, screenOffGesturesPref;
     private VibrationUtils vibrationUtils;
 
     @Override
@@ -27,6 +28,8 @@ public class BootRestoreService extends Service implements KcalConstants {
 
         vibrationUtils = new VibrationUtils(this);
         sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        screenOffGesturesPref = getSharedPreferences(
+                ScreenOffGesture.GESTURE_SETTINGS, Context.MODE_PRIVATE); // Must be same as in SceenOffGestures
         restorePreferences();
 
         return super.onStartCommand(intent, flags, startId);
@@ -44,7 +47,7 @@ public class BootRestoreService extends Service implements KcalConstants {
 
     private void restoreGestureControl() {
         GestureNodeControl.enableGestures(
-                sharedPrefs.getBoolean(ScreenOffGesture.PREF_GESTURE_ENABLE, true));
+                screenOffGesturesPref.getBoolean(ScreenOffGesture.PREF_GESTURE_ENABLE, true));
     }
 
     private void restoreVibrationStrength() {
