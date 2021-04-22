@@ -1,0 +1,38 @@
+# APEX
+/data/vendor/metadata_apex(/.*)?                                                                u:object_r:apex_metadata_file:s0
+/data/vendor/metadata_apex/sessions(/.*)?                                                       u:object_r:apex_metadata_file:s0
+
+# blutmac script
+/(vendor|system/vendor)/bin/init\.btmac\.sh                                                     u:object_r:init_blutmac_exec:s0
+/(system_ext|system/system_ext)/bin/nvram_btwifi                                                u:object_r:nvram_btwifi_exec:s0
+
+# CNE
+/(vendor|system/vendor)/bin/mutualex                                                            u:object_r:vendor_mutualex_exec:s0
+
+# Fingerprint
+/data/system/cdfinger(/.*)?                                                                     u:object_r:cdfinger_data_file:s0
+/dev/fpsdev0                                                                                    u:object_r:cdfinger_device:s0
+/dev/goodix_fp                                                                                  u:object_r:fingerprintd_device:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.[1-2]-service-X00T u:object_r:hal_fingerprint_default_exec:s0
+
+# FPS Info
+/sys/devices/virtual/graphics/fb0/measured_fps                                                  u:object_r:sysfs_fps:s0
+
+# I/O
+# This node is already labelled by QCOM but Lineage overrides it with sysfs_io_sched_tunable label
+# Since qti_init_shell needs to write to it, LOS's private label isn't accessible by our vendor
+# Relabel it to QCOM's sysfs_mmc_host label to get rid of denials
+/sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb u:object_r:sysfs_mmc_host:s0
+
+# Persist
+/persist(/.*)?                                                                                  u:object_r:mnt_vendor_file:s0
+
+# Powerstats mock
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock               u:object_r:hal_power_stats_default_exec:s0
+
+# Sensors
+/sys/devices/virtual/input/input[0-9]+/stk3x1x-proximity(/.*)?                                  u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/input/input[0-9]+/stk3x1x-light(/.*)?                                      u:object_r:sysfs_sensors:s0
+
+# Thermal
+/(vendor|system/vendor)/bin/hw/android\.hardware\.thermal@2\.0-service\.mock                    u:object_r:hal_thermal_default_exec:s0

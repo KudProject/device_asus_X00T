@@ -1,0 +1,4 @@
+# Allow access to qipcrtr_socket
+# Remove this when QMI service moves to pfmd
+allow ssgtzd self:{ socket qipcrtr_socket } create_socket_perms;
+allowxperm ssgtzd self:{ socket qipcrtr_socket } ioctl msm_sock_ipc_ioctls;

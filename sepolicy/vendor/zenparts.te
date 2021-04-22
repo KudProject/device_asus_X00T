@@ -1,0 +1,37 @@
+type zenparts, domain;
+app_domain(zenparts)
+
+# Allow zenparts to find system services
+allow zenparts {
+  app_api_service
+  audioserver_service
+  cameraserver_service
+  drmserver_service
+  mediaextractor_service
+  mediametrics_service
+  mediaserver_service
+}:service_manager find;
+
+# Allow zenparts read and write /data/data subdirectory
+allow zenparts system_app_data_file:dir create_dir_perms;
+allow zenparts system_app_data_file:{
+  file
+  lnk_file
+} create_file_perms;
+
+# Allow zenparts to search nodes dirs
+allow zenparts {
+  sysfs_scontrol
+  sysfs_leds
+  sysfs_gesture_node
+}:dir { r_dir_perms };
+
+# Allow zenparts to control vibrator, gesture_node and mic/headphone gain nodes
+allow zenparts {
+  sysfs_scontrol
+  sysfs_leds
+  sysfs_gesture_node
+}:file rw_file_perms;
+
+# Allow zenparts to read fps info
+allow zenparts sysfs_fps:file r_file_perms;

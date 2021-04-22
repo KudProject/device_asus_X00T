@@ -1,0 +1,21 @@
+persist.cdfinger.ready             u:object_r:cdfinger_prop:s0
+property.cdfinger.enablesave       u:object_r:cdfinger_prop:s0
+persist.vendor.runin.fp            u:object_r:cdfinger_prop:s0
+persist.vendor.camera.             u:object_r:vendor_camera_prop:s0
+
+# Camera
+persist.vendor.camera.bokeh.dumpimg    u:object_r:vendor_camera_prop:s0
+persist.vendor.camera.HAL3.enabled     u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_picselfie     u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_bokeh         u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_hdr           u:object_r:vendor_camera_prop:s0
+vendor.debug.camera.prop_dis           u:object_r:vendor_camera_prop:s0
+
+# nvram
+ro.btmac                           u:object_r:nvram_btwifi_prop:s0
+ro.wifimac                         u:object_r:nvram_btwifi_prop:s0
+sys.nvram.btmac                    u:object_r:nvram_btwifi_prop:s0
+sys.nvram.wifimac                  u:object_r:nvram_btwifi_prop:s0
+
+# wifi
+wifi.active.interface              u:object_r:wifi_prop:s0

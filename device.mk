@@ -300,9 +300,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qti.dcvs.sh \
     init.target.rc \
-    ueventd.qcom.rc \
-    init.safailnet.rc
-
+    ueventd.qcom.rc
+    
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_X00T

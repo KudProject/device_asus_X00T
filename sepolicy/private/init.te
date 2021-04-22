@@ -1,0 +1,2 @@
+allow init iorapd_data_file:file { getattr };
+allow init hwservicemanager:binder { call transfer };

@@ -1,0 +1,7 @@
+# ZenParts
+type sysfs_fps, sysfs_type, fs_type;
+type sysfs_gesture_node, sysfs_type, fs_type;
+type sysfs_scontrol, sysfs_type, fs_type;
+
+type cdfinger_data_file, file_type, data_file_type, core_data_file_type;
+type sysfs_iio_devices, sysfs_type, fs_type;

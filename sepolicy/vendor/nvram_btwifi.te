@@ -1,0 +1,11 @@
+type nvram_btwifi, domain;
+type nvram_btwifi_exec, exec_type, vendor_file_type, file_type;
+init_daemon_domain(nvram_btwifi)
+
+allow nvram_btwifi block_device:dir search;
+allow nvram_btwifi diag_device:chr_file rw_file_perms;
+allow nvram_btwifi persist_file:dir create_dir_perms;
+allow nvram_btwifi persist_file:file create_file_perms;
+
+set_prop(nvram_btwifi, nvram_btwifi_prop);
+set_prop(nvram_btwifi, system_prop);

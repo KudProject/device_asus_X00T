@@ -1,0 +1,2 @@
+# Gestures
+allow system_app sysfs_gesture_node:file rw_file_perms;

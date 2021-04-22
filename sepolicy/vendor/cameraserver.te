@@ -1,0 +1,2 @@
+allow cameraserver vendor_persist_camera_prop:file { read };
+binder_call(cameraserver, mediacodec)

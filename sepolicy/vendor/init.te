@@ -1,0 +1,5 @@
+allow init firmware_file:filesystem getattr;
+allow init bt_firmware_file:filesystem getattr;
+allow init apex_metadata_file:lnk_file read;
+allow init debugfs_tracing_debug:dir { mounton };
+allow init sysfs_leds:file { rw_file_perms };
