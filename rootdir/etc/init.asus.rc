@@ -109,5 +109,14 @@ service vendor-btmac-sh  /vendor/bin/init.btmac.sh
     oneshot
     disabled
 
+service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
+    override
+    interface android.hardware.sensors@1.0::ISensors default
+    class hal
+    user system
+    group system wakelock input uhid context_hub
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
+    
 # Misc changes
 # Disable CDSP in init.qcom.post_boot.sh
