@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Asus-SDM660 Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="advanced_settings">ZenParts</string>
+    <string name="advanced_settings_summary">Особые настройки устройства</string>
+    <string name="display_title">Экран</string>
+    <string name="vibration_title">Вибрация</string>
+    <string name="vibration_summary">Настроить силу вибрации для системы, звонков и уведомлений</string>
+    <string name="vibration_strength_system_ui">Сила вибрации - Система</string>
+    <string name="vibration_strength_call">Сила вибрации - Звонок</string>
+    <string name="vibration_strength_system_notification">Сила вибрации - Уведомление</string>
+    <string name="category_vibration">Сила вибрации</string>
+    <string name="audio_title">Усиление звука</string>
+    <!-- Audio amplification -->
+    <string name="headphone_gain">Наушники</string>
+    <string name="microphone_gain">Микрофон</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значение: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">По умолчанию</string>
+    <string name="custom_seekbar_default_value_to_set">Значение по умолчанию: <xliff:g id="v">%s</xliff:g>\nУдерживать для применения</string>
+    <string name="custom_seekbar_default_value_is_set">Значение по умолчанию - установлено</string>
+    <!-- Zenmotions -->
+    <string name="dlg_ok">Да</string>
+    <string name="cancel">Отмена</string>
+    <string name="reset">Сбросить</string>
+    <string name="reset_message">Установить значение по умолчанию?</string>
+    <string name="category_gesture">Жесты</string>
+    <string name="screen_off_gesture_title">ZenMotions</string>
+    <string name="group_applications">Приложения</string>
+    <string name="select_custom_app_title">Выбрать пользовательское приложение</string>
+    <string name="gestures_dashboard_summary">Включить жесты на выключенном экране</string>
+    <string name="enable_gestures_title">Включить жесты</string>
+    <string name="enable_gestures_summary">Включить жесты на выключенном экране</string>
+    <string name="gestures_title">Жесты</string>
+    <string name="zenmotions">ZenMotions</string>
+    <string name="zenmotions_summary">Жесты на выключенном экране</string>
+    <string name="gestures">Жесты</string>
+    <string name="screen_off_gestures">Жесты отключения экрана</string>
+    <string name="gesture_z_title">Жест Z</string>
+    <string name="gesture_s_title">Жест S</string>
+    <string name="gesture_v_title">Жест V</string>
+    <string name="gesture_w_title">Жест W</string>
+    <string name="gesture_c_title">Жест C</string>
+    <string name="gesture_e_title">Жест e</string>
+    <string name="gesture_up_title">Свайп вверх</string>
+    <string name="gesture_down_title">Свайп вниз</string>
+    <string name="gesture_left_title">Свайп влево</string>
+    <string name="gesture_right_title">Свайп вправо</string>
+    <string name="screen_gestures_panel_title">Жесты</string>
+    <string name="proxi_summary_head">Проверить датчик приближения для обработки жестов и отпечатков пальцев</string>
+    <string name="proxi_title_head">Проверить датчик приближения</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_on">Включить</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_off">Выключить</string>
+    <!-- Device specific settings -->
+    <string name="device_settings_app_name">Расширенные настройки</string>
+    <!-- FPS Info -->
+    <string name="fps_info_title">Частота кадров на экране</string>
+    <string name="fps_info_summary">Показывать счётчик FPS на экране</string>
+    <!-- Gesture Settings -->
+    <!-- Arrays for Screen off gestures -->
+    <string-array name="shortcut_action_screen_off_entries">
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_camera</item>
+        <item>@string/shortcut_action_media_next</item>
+        <item>@string/shortcut_action_media_play_pause</item>
+        <item>@string/shortcut_action_media_previous</item>
+        <item>@string/shortcut_action_ring_silent</item>
+        <item>@string/shortcut_action_ring_vib</item>
+        <item>@string/shortcut_action_ring_vib_silent</item>
+        <item>@string/shortcut_action_torch</item>
+        <item>@string/shortcut_action_wake_device</item>
+        <item>@string/shortcut_action_none</item>
+    </string-array>
+    <!-- Shortcut actions -->
+    <string name="shortcut_action_none">Ничего</string>
+    <string name="shortcut_action_app">Пользовательское приложение</string>
+    <string name="shortcut_action_home">Домой</string>
+    <string name="shortcut_action_back">Назад</string>
+    <string name="shortcut_action_menu">Меню</string>
+    <string name="shortcut_action_ime">Переключение способа ввода</string>
+    <string name="shortcut_action_power_menu">Меню кнопки питания</string>
+    <string name="shortcut_action_recent">Недавние</string>
+    <string name="shortcut_action_power">Выключение экрана</string>
+    <string name="shortcut_action_search">Поиск в приложении</string>
+    <string name="shortcut_action_now_on_tap">Теперь на экране</string>
+    <string name="shortcut_action_ring_vib">Обычный/Вибрация</string>
+    <string name="shortcut_action_ring_silent">Обычный/Без звука</string>
+    <string name="shortcut_action_ring_vib_silent">Обычный/Вибрация/Без звука</string>
+    <string name="shortcut_action_camera">Камера</string>
+    <string name="shortcut_action_media_next">Музыка - следующий трек</string>
+    <string name="shortcut_action_media_play_pause">Музыка - воспроизведение/пауза</string>
+    <string name="shortcut_action_media_previous">Музыка - предыдущий трек</string>
+    <string name="shortcut_action_wake_device">Пробудить устройство</string>
+    <string name="shortcut_action_kill">Закрыть приложение</string>
+    <string name="shortcut_action_screenshot">Скриншот</string>
+    <string name="shortcut_action_lastapp">Последнее приложение</string>
+    <string name="shortcut_action_notifications">Уведомления</string>
+    <string name="shortcut_action_qs">Панель быстрых настроек</string>
+    <string name="shortcut_action_torch">Фонарик</string>
+    <string name="shortcut_action_longpress">Длительное нажатие:</string>
+    <string name="shortcut_action_select_action_longpress">Выберите действия при длительном нажатии:</string>
+    <string name="shortcut_action_select_action">Выберите действие:</string>
+    <string name="shortcut_action_select_action_newaction">Выберите новое действия:</string>
+    <string name="shortcut_action_reset">Сбросить</string>
+    <string name="shortcut_action_add">Добавить</string>
+    <string name="shortcut_action_reset_message">Установить значение по умолчанию?</string>
+    <string name="shortcut_action_max">Достигнуто максимальное количество параметров</string>
+    <string name="shortcut_action_warning">Внимание</string>
+    <string name="shortcut_action_warning_message">Невозможно удалить последнюю запись</string>
+    <string name="shortcut_action_required_warning_message">Невозможно удалить требуемые кнопки</string>
+    <string name="shortcut_action_disable_message">Выключено\nДобавьте запись для включения этой функции</string>
+    <string name="shortcut_image_not_valid">Выбранное приложение не имеет подходящего значка или не поддерживает обрезанные изображения. Используйте другое приложение.</string>
+    <string name="shortcut_duplicate_entry">Выбранное действие нельзя добавить дважды</string>
+    <string name="shortcut_action_help_shortcut">ярлык</string>
+    <string name="shortcut_action_help_button">кнопка</string>
+    <string name="shortcut_action_help_app">приложение</string>
+    <string name="shortcut_action_help_icon">, в процессе выбора значка будут показаны настройки кастомизации</string>
+    <string name="shortcut_action_help_main">Чтобы добавить %1$s, нажмите значок \"Добавить\". После добавления %1$s выбор строки изменится на %2$s\n\nЧтобы удалить %1$s, сдвиньте ряд по горизонтали. Чтобы изменить порядок %1$s в списке - передвиньте нужный якорь слева по вертикали.\n\nЧтобы сбросить все к значениям по умолчанию, нажмите значок \"Сбросить\".</string>
+    <!-- Device specific settings -->
+    <string name="screen_off_gesture_settings_title">Жест отключения экрана</string>
+</resources>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Asus-SDM660 Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="advanced_settings">ZenParts</string>
+    <string name="advanced_settings_summary">Personalizações específicas do dispositivo</string>
+    <string name="display_title">Tela</string>
+    <string name="vibration_title">Vibração</string>
+    <string name="vibration_summary">Definir intensidade da vibração para o sistema, chamadas e notificações</string>
+    <string name="vibration_strength_system_ui">Intensidade da vibração - Sistema</string>
+    <string name="vibration_strength_call">Intensidade da vibração - Chamadas</string>
+    <string name="vibration_strength_system_notification">Intensidade da vibração - Notificação</string>
+    <string name="category_vibration">Intensidade da vibração</string>
+    <string name="audio_title">Áudio</string>
+    <!-- Audio amplification -->
+    <string name="headphone_gain">Ganho do fone de ouvido</string>
+    <string name="microphone_gain">Ganho do microfone</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valor: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Padrão</string>
+    <string name="custom_seekbar_default_value_to_set">Valor padrão: <xliff:g id ="v">%s</xliff:g>\nPressione e segure para definir</string>
+    <string name="custom_seekbar_default_value_is_set">Valor padrão definido</string>
+    <!-- Zenmotions -->
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="reset">Redefinir</string>
+    <string name="reset_message">Redefinir todas as entradas para o padrão?</string>
+    <string name="category_gesture">Gestos</string>
+    <string name="screen_off_gesture_title">Zenmotions</string>
+    <string name="group_applications">Aplicativos</string>
+    <string name="select_custom_app_title">Selecionar um aplicativo personalizado</string>
+    <string name="gestures_dashboard_summary">Gestos com a tela desligada</string>
+    <string name="enable_gestures_title">Habilitar gestos</string>
+    <string name="enable_gestures_summary">Ativar gestos com a tela desligada</string>
+    <string name="gestures_title">Gestos</string>
+    <string name="zenmotions">Zenmotions</string>
+    <string name="zenmotions_summary">Gestos com a tela desligada</string>
+    <string name="gestures">Gestos</string>
+    <string name="screen_off_gestures">Gestos com a tela desligada</string>
+    <string name="gesture_z_title">Gesto: \"Z\"</string>
+    <string name="gesture_s_title">Gesto: \"S\"</string>
+    <string name="gesture_v_title">Gesto: \"V\"</string>
+    <string name="gesture_w_title">Gesto: \"W\"</string>
+    <string name="gesture_c_title">Gesto: \"C\"</string>
+    <string name="gesture_e_title">Gesto: \"e\"</string>
+    <string name="gesture_up_title">Gesto: deslizar para cima</string>
+    <string name="gesture_down_title">Gesto: deslizar para baixo</string>
+    <string name="gesture_left_title">Gesto: deslizar para esquerda</string>
+    <string name="gesture_right_title">Gesto: deslizar para direita</string>
+    <string name="screen_gestures_panel_title">Gestos</string>
+    <string name="proxi_summary_head">Checar sensor de proximidade para controle dos gestos e do sensor de digitais</string>
+    <string name="proxi_title_head">Verificação de proximidade</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_on">Ativado</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_off">Desativado</string>
+    <!-- Device specific settings -->
+    <string name="device_settings_app_name">Configurações avançadas</string>
+    <!-- FPS Info -->
+    <string name="fps_info_title">Taxa de FPS</string>
+    <string name="fps_info_summary">Mostra a taxa de FPS atual na tela</string>
+    <!-- Gesture Settings -->
+    <!-- Arrays for Screen off gestures -->
+    <string-array name="shortcut_action_screen_off_entries">
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_camera</item>
+        <item>@string/shortcut_action_media_next</item>
+        <item>@string/shortcut_action_media_play_pause</item>
+        <item>@string/shortcut_action_media_previous</item>
+        <item>@string/shortcut_action_ring_silent</item>
+        <item>@string/shortcut_action_ring_vib</item>
+        <item>@string/shortcut_action_ring_vib_silent</item>
+        <item>@string/shortcut_action_torch</item>
+        <item>@string/shortcut_action_wake_device</item>
+        <item>@string/shortcut_action_none</item>
+    </string-array>
+    <!-- Shortcut actions -->
+    <string name="shortcut_action_none">Nenhum</string>
+    <string name="shortcut_action_app">Aplicativo personalizado</string>
+    <string name="shortcut_action_home">Início</string>
+    <string name="shortcut_action_back">Voltar</string>
+    <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Abrir alternador do método de entrada</string>
+    <string name="shortcut_action_power_menu">Menu de energia</string>
+    <string name="shortcut_action_recent">Recentes</string>
+    <string name="shortcut_action_power">Tela desligada</string>
+    <string name="shortcut_action_search">Procurar no aplicativo</string>
+    <string name="shortcut_action_now_on_tap">Google Now on Tap</string>
+    <string name="shortcut_action_ring_vib">Tocar/Vibrar</string>
+    <string name="shortcut_action_ring_silent">Tocar/Silencioso</string>
+    <string name="shortcut_action_ring_vib_silent">Tocar/Vibrar/Silencioso</string>
+    <string name="shortcut_action_camera">Câmera</string>
+    <string name="shortcut_action_media_next">Música - próxima música</string>
+    <string name="shortcut_action_media_play_pause">Música - reproduzir/pausar</string>
+    <string name="shortcut_action_media_previous">Música - música anterior</string>
+    <string name="shortcut_action_wake_device">Acordar o dispositivo</string>
+    <string name="shortcut_action_kill">Fechar aplicativo</string>
+    <string name="shortcut_action_screenshot">Captura de tela</string>
+    <string name="shortcut_action_lastapp">Último aplicativo</string>
+    <string name="shortcut_action_notifications">Notificações</string>
+    <string name="shortcut_action_qs">Painel de configurações rápidas</string>
+    <string name="shortcut_action_torch">Lanterna</string>
+    <string name="shortcut_action_longpress">Toque longo:</string>
+    <string name="shortcut_action_select_action_longpress">Selecione ação do toque longo:</string>
+    <string name="shortcut_action_select_action">Escolher a ação:</string>
+    <string name="shortcut_action_select_action_newaction">Escolher nova ação:</string>
+    <string name="shortcut_action_reset">Redefinir</string>
+    <string name="shortcut_action_add">Adicionar</string>
+    <string name="shortcut_action_reset_message">Redefinir todas as entradas para o padrão?</string>
+    <string name="shortcut_action_max">O número máximo de entradas foi atingido</string>
+    <string name="shortcut_action_warning">Aviso</string>
+    <string name="shortcut_action_warning_message">Não é possível excluir a última entrada</string>
+    <string name="shortcut_action_required_warning_message">Não é possível excluir os botões desejados</string>
+    <string name="shortcut_action_disable_message">Desabilitado\nAdicione uma entrada para habilitar este recurso</string>
+    <string name="shortcut_image_not_valid">O aplicativo escolhido não apresentou um ícone válido ou não suporta recorte de imagem. Use outro aplicativo.</string>
+    <string name="shortcut_duplicate_entry">A ação escolhida não pode ser adicionada duas vezes</string>
+    <string name="shortcut_action_help_shortcut">Atalho</string>
+    <string name="shortcut_action_help_button">Botão</string>
+    <string name="shortcut_action_help_app">Aplicativo</string>
+    <string name="shortcut_action_help_icon">, enquanto estiver selecionando ícone, aparecerá as opções de customização</string>
+    <string name="shortcut_action_help_main">Para adicionar um %1$s, selecione o \"Adicionar ícone\". Uma vez que %1$s foi adicionado, selecionar a linha mudará o alvo%2$s\n\nPara remover um %1$s, deslize a linha horizontalmente para esquerda ou para direita. Reordene %1$s na lista arrastando a âncora à esquerda verticalmente.\n\nPara limpar e voltar aos valores de origem, selecione a opção de \"Redefinir\".</string>
+    <!-- Device specific settings -->
+    <string name="screen_off_gesture_settings_title">Gestos com a tela desligada</string>
+</resources>

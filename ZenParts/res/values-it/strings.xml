@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 The Asus-SDM660 Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="advanced_settings">ZenParts</string>
+    <string name="advanced_settings_summary">Personalizzazioni Specifiche Del Dispositivo</string>
+    <string name="display_title">Schermo</string>
+    <string name="vibration_title">Vibrazione</string>
+    <string name="vibration_summary">Imposta l\'intensità della vibrazione per sistema, chiamate e notifiche</string>
+    <string name="vibration_strength_system_ui">Intensità Vibrazione - Interfaccia Utente</string>
+    <string name="vibration_strength_call">Intensità Vibrazione - Chiamata</string>
+    <string name="vibration_strength_system_notification">Intensità Vibrazione - Notifica</string>
+    <string name="category_vibration">Intensità vibrazione</string>
+    <string name="audio_title">Audio</string>
+    <!-- Audio amplification -->
+    <string name="headphone_gain">Guadagno cuffie</string>
+    <string name="microphone_gain">Guadagno microfono</string>
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valore: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">Predefinito</string>
+    <string name="custom_seekbar_default_value_to_set">Valore predefinito: <xliff:g id="v">%s</xliff:g>\nPressione prolungata per impostare</string>
+    <string name="custom_seekbar_default_value_is_set">Valore predefinito impostato</string>
+    <!-- Zenmotions -->
+    <string name="dlg_ok">OK</string>
+    <string name="cancel">Annulla</string>
+    <string name="reset">Reimposta</string>
+    <string name="reset_message">Ripristinare tutti i valori predefiniti?</string>
+    <string name="category_gesture">Gestures</string>
+    <string name="screen_off_gesture_title">Zenmotions</string>
+    <string name="group_applications">Applicazioni</string>
+    <string name="select_custom_app_title">Seleziona una applicazione personalizzata</string>
+    <string name="gestures_dashboard_summary">Gestures incredibili a schermo spento</string>
+    <string name="enable_gestures_title">Attiva gesture</string>
+    <string name="enable_gestures_summary">Attiva gesti schermo spento</string>
+    <string name="gestures_title">Gesture</string>
+    <string name="zenmotions">Zenmotions</string>
+    <string name="zenmotions_summary">Gestures incredibili a schermo spento</string>
+    <string name="gestures">Gestures</string>
+    <string name="screen_off_gestures">Gestures a schermo spento</string>
+    <string name="gesture_z_title">Gesture</string>
+    <string name="gesture_s_title">Gesture</string>
+    <string name="gesture_v_title">Gesture</string>
+    <string name="gesture_w_title">Gesture</string>
+    <string name="gesture_c_title">Gesture</string>
+    <string name="gesture_e_title">Gesture</string>
+    <string name="gesture_up_title">Scorrimento Gesto Su</string>
+    <string name="gesture_down_title">Scorrimento Gesto Giù</string>
+    <string name="gesture_left_title">Scorrimento Gesto A Sinistra</string>
+    <string name="gesture_right_title">Scorrimento Gesto A Destra</string>
+    <string name="screen_gestures_panel_title">Gestures</string>
+    <string name="proxi_summary_head">Controlla il sensore di prossimità per gestire il gesto e il sensore di impronte digitali</string>
+    <string name="proxi_title_head">Controllo di prossimità</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_on">On</string>
+    <!-- Label for feature switch [CHAR LIMIT=30] -->
+    <string name="switch_bar_off">Off</string>
+    <!-- Device specific settings -->
+    <string name="device_settings_app_name">Impostazioni avanzate</string>
+    <!-- FPS Info -->
+    <string name="fps_info_title">FPS Info Overlay</string>
+    <string name="fps_info_summary">Mostra sullo schermo i tuoi FPS</string>
+    <!-- Gesture Settings -->
+    <!-- Arrays for Screen off gestures -->
+    <string-array name="shortcut_action_screen_off_entries">
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+        <item>@string/shortcut_action_app</item>
+    </string-array>
+    <!-- Shortcut actions -->
+    <string name="shortcut_action_none">Nessuno/a</string>
+    <string name="shortcut_action_app">App personalizzata</string>
+    <string name="shortcut_action_home">Home</string>
+    <string name="shortcut_action_back">Indietro</string>
+    <string name="shortcut_action_menu">Menu</string>
+    <string name="shortcut_action_ime">Apri IME Switcher</string>
+    <string name="shortcut_action_power_menu">Menu di spegnimento</string>
+    <string name="shortcut_action_recent">Recenti</string>
+    <string name="shortcut_action_power">Schermo spento</string>
+    <string name="shortcut_action_search">Ricerca in app</string>
+    <string name="shortcut_action_now_on_tap">Now on Tap</string>
+    <string name="shortcut_action_ring_vib">Suoneria/Vibrazione</string>
+    <string name="shortcut_action_ring_silent">Suoneria/Silenzioso</string>
+    <string name="shortcut_action_ring_vib_silent">Suoneria/Vibrazione/Silenzioso</string>
+    <string name="shortcut_action_camera">Fotocamera</string>
+    <string name="shortcut_action_media_next">Musica - Traccia successiva</string>
+    <string name="shortcut_action_media_play_pause">Musica - play/pausa</string>
+    <string name="shortcut_action_media_previous">Musica - Traccia precedente</string>
+    <string name="shortcut_action_wake_device">Risveglia dispositivo</string>
+    <string name="shortcut_action_kill">Termina applicazione</string>
+    <string name="shortcut_action_screenshot">Cattura Schermo</string>
+    <string name="shortcut_action_lastapp">Ultima app</string>
+    <string name="shortcut_action_notifications">Notifiche</string>
+    <string name="shortcut_action_qs">Pannello Impostazioni rapide</string>
+    <string name="shortcut_action_torch">Torcia</string>
+    <string name="shortcut_action_longpress">Pressione prolungata:</string>
+    <string name="shortcut_action_select_action_longpress">Scegli l\'azione di una pressione prolungata:</string>
+    <string name="shortcut_action_select_action">Scegli azione:</string>
+    <string name="shortcut_action_select_action_newaction">Scegli nuova azione:</string>
+    <string name="shortcut_action_reset">Reset</string>
+    <string name="shortcut_action_add">Aggiungi</string>
+    <string name="shortcut_action_reset_message">Ripristinare tutti i valori predefiniti?</string>
+    <string name="shortcut_action_max">Il numero massimo di voci è stato raggiunto</string>
+    <string name="shortcut_action_warning">Avviso</string>
+    <string name="shortcut_action_warning_message">Non è possibile eliminare l\'ultima voce</string>
+    <string name="shortcut_action_required_warning_message">Non è possibile eliminare i pulsanti obbligatori</string>
+    <string name="shortcut_action_disable_message">Disabilitato\nAggiungi una voce per abilitare questa funzione</string>
+    <string name="shortcut_image_not_valid">L\'applicazione scelta non restituisce un\'icona valida o non supporta il ritaglio immagine. Usa un\'altra applicazione.</string>
+    <string name="shortcut_duplicate_entry">L\'azione scelta non può essere aggiunta due volte</string>
+    <string name="shortcut_action_help_shortcut">scorciatoia</string>
+    <string name="shortcut_action_help_button">pulsante</string>
+    <string name="shortcut_action_help_app">applicazione</string>
+    <string name="shortcut_action_help_icon">, mentre selezionando l\'icona, si apriranno le opzioni di personalizzazione</string>
+    <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona Aggiungi. Dopo che un %1$s è stato aggiunto, selezionando la riga cambierà l\'obiettivo %2$s\n\nPer rimuovere un %1$s, trascina orizzontalmente la riga. Riordina un %1$s nella lista trascinando verticalmente il punto di ancoraggio a sinistra.\n\nPer cancellare o reimpostare le impostazioni predefinite, seleziona l\'icona Reimposta.</string>
+    <!-- Device specific settings -->
+    <string name="screen_off_gesture_settings_title">Gesti a schermo spento</string>
+</resources>
