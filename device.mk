@@ -74,7 +74,7 @@ $(call inherit-product, vendor/asus/X00T/X00T-vendor.mk)
 PRODUCT_PACKAGES += \
     camera.sdm660 \
     libgui_vendor \
-    GCamGOPrebuilt
+    Camera2
 
 # default is nosdcard, S/W button enabled in resource
 PRODUCT_CHARACTERISTICS := nosdcard
